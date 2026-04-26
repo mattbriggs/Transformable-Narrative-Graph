@@ -128,6 +128,20 @@ class TestProseRenderer:
         pos2 = output.content.find("She stopped.")
         assert pos1 < pos2
 
+    def test_scene_with_summary_uses_summary_as_heading(self):
+        gs = _make_graph_state()
+        output = ProseRenderer().render(gs, {})
+        assert "## Opening scene." in output.content
+        assert "## Scene 1" not in output.content
+
+    def test_scene_without_summary_falls_back_to_scene_number(self):
+        atom = Atom(id="ax", text="Something happened.", kind=AtomKind.DESCRIPTIVE, surface_order=0)
+        scene = Scene(id="sx", sequence=3, summary="", atoms=[atom])
+        narrative = Narrative(id="nx", title="T", scenes=[scene])
+        gs = GraphState(narrative=narrative)
+        output = ProseRenderer().render(gs, {})
+        assert "## Scene 3" in output.content
+
 
 # ── DiffRenderer tests ────────────────────────────────────────────────────────
 

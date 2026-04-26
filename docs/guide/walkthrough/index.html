@@ -1,0 +1,1861 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A graph-native system for representing, transforming, and rendering literary narratives">
+      
+      
+        <meta name="author" content="Matt Briggs">
+      
+      
+      
+        <link rel="prev" href="../../context/">
+      
+      
+        <link rel="next" href="../parsing/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Walkthrough: The Yellow Wallpaper - Transformable Narrative Graph System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#walkthrough-the-yellow-wallpaper" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Transformable Narrative Graph System" class="md-header__button md-logo" aria-label="Transformable Narrative Graph System" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Transformable Narrative Graph System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Walkthrough: The Yellow Wallpaper
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mattbriggs/Transformable-Narrative-Graph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../context/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Context
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../design/architecture/" class="md-tabs__link">
+          
+  
+  
+  Design
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Transformable Narrative Graph System" class="md-nav__button md-logo" aria-label="Transformable Narrative Graph System" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Transformable Narrative Graph System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mattbriggs/Transformable-Narrative-Graph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough: The Yellow Wallpaper
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough: The Yellow Wallpaper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-source-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The source text
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-start-the-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Start the stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-ingest-the-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Ingest the Markdown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-review-the-graph-in-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Review the graph in Neo4j
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-export-baseline-graphml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Export baseline GraphML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-apply-a-pov-transform-to-scene-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Apply a POV transform to Scene 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-apply-mood-across-all-four-scenes-bulk-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Apply mood across all four scenes (bulk transform)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-tag-a-key-atom-with-a-hermeneutic-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Tag a key atom with a hermeneutic code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-revise-an-atoms-prose-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — Revise an atom's prose text
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-re-export-graphml-and-compare-tension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9 — Re-export GraphML and compare tension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-export-revised-prose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 10 — Export revised prose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transform audit trail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../parsing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parsing Narratives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transforming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transforming Narratives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output and Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reading the Graph in yEd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/transformation-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformation Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/graphml-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphML Export
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-source-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The source text
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-start-the-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Start the stack
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-ingest-the-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Ingest the Markdown
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-review-the-graph-in-neo4j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Review the graph in Neo4j
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-export-baseline-graphml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Export baseline GraphML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-apply-a-pov-transform-to-scene-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Apply a POV transform to Scene 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-apply-mood-across-all-four-scenes-bulk-transform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6 — Apply mood across all four scenes (bulk transform)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-tag-a-key-atom-with-a-hermeneutic-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7 — Tag a key atom with a hermeneutic code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-revise-an-atoms-prose-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8 — Revise an atom's prose text
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-9-re-export-graphml-and-compare-tension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9 — Re-export GraphML and compare tension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-10-export-revised-prose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 10 — Export revised prose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transform-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transform audit trail
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="walkthrough-the-yellow-wallpaper">Walkthrough: The Yellow Wallpaper<a class="headerlink" href="#walkthrough-the-yellow-wallpaper" title="Permanent link">&para;</a></h1>
+<p>This guide takes one short literary text through the complete TNGS workflow:
+ingest → graph review → GraphML export → narrative transforms → atom revision
+→ re-export GraphML → render revised prose.</p>
+<p>The source is <strong>"The Yellow Wallpaper"</strong> by Charlotte Perkins Gilman (1892),
+a first-person journal narrative well-suited to POV, reliability, and mood
+analysis. The text is public domain via <a href="https://www.gutenberg.org/ebooks/1952">Project Gutenberg</a>.</p>
+<hr />
+<h2 id="the-source-text">The source text<a class="headerlink" href="#the-source-text" title="Permanent link">&para;</a></h2>
+<p>We work with a four-section curated excerpt, saved as <code>yellow_wallpaper.md</code>.
+Section headings have been added to mark the natural narrative breaks; the
+prose is Gilman's verbatim.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="gh"># The Yellow Wallpaper</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="gu">## The House</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>It is very seldom that mere ordinary people like John and myself secure
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>ancestral halls for the summer. A colonial mansion, a hereditary estate,
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>I would say a haunted house, and reach the height of romantic felicity—but
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>that would be asking too much of fate! Still I will proudly declare that
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>there is something queer about it.
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>John laughs at me, of course, but one expects that in marriage. John is
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>practical in the extreme. He has no patience with faith, an intense horror
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>of superstition, and he scoffs openly at any talk of things not to be felt
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>and seen and put down in figures.
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>John is a physician, and perhaps—(I would not say it to a living soul, of
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>course, but this is dead paper and a great relief to my mind)—perhaps that
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>is one reason I do not get well faster. You see, he does not believe I am
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>sick!
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="gu">## The Room</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>I don&#39;t like our room a bit. I wanted one downstairs that opened on the
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>piazza and had roses all over the window, and such pretty old-fashioned
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>chintz hangings! But John would not hear of it.
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>It is a big, airy room, the whole floor nearly, with windows that look all
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>ways, and air and sunshine galore. The paint and paper look as if a boys&#39;
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>school had used it. It is stripped off—the paper—in great patches all
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>around the head of my bed, about as far as I can reach, and in a great
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>place on the other side of the room low down. I never saw a worse paper
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>in my life.
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>The color is repellant, almost revolting; a smouldering, unclean yellow,
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>strangely faded by the slow-turning sunlight. It is a dull yet lurid
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>orange in some places, a sickly sulphur tint in others.
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a><span class="gu">## The Pattern</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>I lie here on this great immovable bed—it is nailed down, I believe—and
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>follow that pattern about by the hour. It is as good as gymnastics, I
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>assure you. I know a little of the principle of design, and I know this
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>thing was not arranged on any laws of radiation, or alternation, or
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>repetition, or symmetry, or anything else that I ever heard of.
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>The whole thing goes horizontally, too, at least it seems so, and I exhaust
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>myself in trying to distinguish the order of its going in that direction.
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>It makes me tired to follow it. I will take a nap, I guess.
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a><span class="gu">## The Figure</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>Behind that outside pattern the dim shapes get clearer every day. It is
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>always the same shape, only very numerous. And it is like a woman stooping
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>down and creeping about behind that pattern. I don&#39;t like it a bit.
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>I wonder—I begin to think—I wish John would take me away from here!
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>At night in any kind of light, in twilight, candlelight, lamplight, and
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>worst of all by moonlight, it becomes bars! The outside pattern I mean,
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>and the woman behind it is as plain as can be.
+</code></pre></div>
+<hr />
+<h2 id="step-1-start-the-stack">Step 1 — Start the stack<a class="headerlink" href="#step-1-start-the-stack" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>secrets
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;neo4j/your-password&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>secrets/neo4j_auth.txt
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Wait for readiness</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>curl<span class="w"> </span>http://localhost:8000/v1/health/ready
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># → {&quot;status&quot;:&quot;ok&quot;,&quot;neo4j&quot;:&quot;connected&quot;}</span>
+</code></pre></div>
+<hr />
+<h2 id="step-2-ingest-the-markdown">Step 2 — Ingest the Markdown<a class="headerlink" href="#step-2-ingest-the-markdown" title="Permanent link">&para;</a></h2>
+<p>Post the file with <code>format: "markdown"</code> so the segmenter treats <code>##</code> headings
+as scene boundaries rather than prose atoms.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">NARRATIVE_ID</span><span class="o">=</span><span class="s2">&quot;yw-gilman-001&quot;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/notes/import<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s2">    \&quot;title\&quot;: \&quot;The Yellow Wallpaper\&quot;,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s2">    \&quot;narrative_id\&quot;: \&quot;</span><span class="nv">$NARRATIVE_ID</span><span class="s2">\&quot;,</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s2">    \&quot;format\&quot;: \&quot;markdown\&quot;,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s2">    \&quot;source_ref\&quot;: \&quot;gutenberg.org/ebooks/1952\&quot;,</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="s2">    \&quot;text\&quot;: </span><span class="k">$(</span>cat<span class="w"> </span>yellow_wallpaper.md<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import sys,json; print(json.dumps(sys.stdin.read()))&#39;</span><span class="k">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="s2">  }&quot;</span>
+</code></pre></div>
+<p>Response:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;narrative_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yw-gilman-001&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;scene_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;atom_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;event_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">&quot;pattern_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">&quot;flagged_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
+<p>Four scenes were created — one per <code>##</code> heading. The <code>## The House</code> heading
+text became <code>scene.summary</code> for Scene 1; its prose became atoms. The heading
+line itself is <strong>not</strong> an atom. One atom was flagged for review (below the
+confidence threshold — likely a sentence fragment).</p>
+<div class="admonition note">
+<p class="admonition-title">Why <code>format: \"markdown\"</code> matters</p>
+<p>Without it, the segmenter treats every paragraph as a separate scene and
+heading lines become atoms in Scene 1. With it, the four <code>##</code> headings
+become the four scene boundaries and scene summaries.</p>
+</div>
+<hr />
+<h2 id="step-3-review-the-graph-in-neo4j">Step 3 — Review the graph in Neo4j<a class="headerlink" href="#step-3-review-the-graph-in-neo4j" title="Permanent link">&para;</a></h2>
+<p>Open the Neo4j Browser at <code>http://localhost:7474</code> and run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// See the four scenes and their summaries</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Narrative</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;yw-gilman-001&quot;</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_SCENE</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">Scene</span><span class="p">)</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">sequence</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">seq</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">summary</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">heading</span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">scene_id</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">sequence</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>seq</th>
+<th>heading</th>
+<th>scene_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>The House</td>
+<td>s-…</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The Room</td>
+<td>s-…</td>
+</tr>
+<tr>
+<td>3</td>
+<td>The Pattern</td>
+<td>s-…</td>
+</tr>
+<tr>
+<td>4</td>
+<td>The Figure</td>
+<td>s-…</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// See atoms for Scene 1</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Narrative</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;yw-gilman-001&quot;</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_SCENE</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">Scene</span><span class="w"> </span><span class="p">{</span><span class="n">sequence</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="p">})</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">CONTAINS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Atom</span><span class="p">)</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">surface_order</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">ord</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">text</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">kind</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">kind</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">surface_order</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>ord</th>
+<th>text</th>
+<th>kind</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>It is very seldom that mere ordinary people…</td>
+<td>descriptive</td>
+</tr>
+<tr>
+<td>1</td>
+<td>A colonial mansion, a hereditary estate…</td>
+<td>descriptive</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Still I will proudly declare that there is something queer about it.</td>
+<td>descriptive</td>
+</tr>
+<tr>
+<td>3</td>
+<td>John laughs at me, of course, but one expects that in marriage.</td>
+<td>descriptive</td>
+</tr>
+<tr>
+<td>4</td>
+<td>John is practical in the extreme.</td>
+<td>descriptive</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// Find characters extracted across the narrative</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Narrative</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;yw-gilman-001&quot;</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_SCENE</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">CONTAINS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">:</span><span class="n">Event</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="n">Character</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">PARTICIPATES_IN</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">RETURN</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">character</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">role</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">role</span>
+</code></pre></div>
+<p>The extractor finds <strong>John</strong> (multiple mentions → higher confidence) and
+the narrator's references to her own agency.</p>
+<hr />
+<h2 id="step-4-export-baseline-graphml">Step 4 — Export baseline GraphML<a class="headerlink" href="#step-4-export-baseline-graphml" title="Permanent link">&para;</a></h2>
+<p>Export the graph before any transforms to establish a baseline tension map.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>curl<span class="w"> </span>-sX<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/render/yw-gilman-001<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;: &quot;graphml&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.content&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>yw_baseline.graphml
+</code></pre></div>
+<p>Open <code>yw_baseline.graphml</code> in yEd (File → Open), then apply Layout →
+Hierarchical. At this point, most edges are <strong>grey</strong> (#A0A0A0) or <strong>steel
+blue</strong> (#4682B4) — structural containment and temporal sequence only.
+No high-tension crimson edges appear yet because no mood, code, or causal
+transforms have been applied.</p>
+<hr />
+<h2 id="step-5-apply-a-pov-transform-to-scene-1">Step 5 — Apply a POV transform to Scene 1<a class="headerlink" href="#step-5-apply-a-pov-transform-to-scene-1" title="Permanent link">&para;</a></h2>
+<p>The narrator is explicitly subjective and unreliable. Tag Scene 1 to reflect
+that — internal focalization through the narrator, reliability ambiguous.</p>
+<p>First, retrieve Scene 1's ID:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">SCENE_1</span><span class="o">=</span><span class="k">$(</span>curl<span class="w"> </span>-s<span class="w"> </span>http://localhost:8000/v1/narratives/yw-gilman-001<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.scenes[0].id // empty&#39;</span><span class="k">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Or query directly from the JSON render:</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>curl<span class="w"> </span>-sX<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/render/yw-gilman-001<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;:&quot;json&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.content | fromjson | .narrative.scenes[0].id&#39;</span>
+</code></pre></div>
+<p>Apply the POV transform:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/transforms/apply<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="s2">    \&quot;scene_id\&quot;: \&quot;</span><span class="nv">$SCENE_1</span><span class="s2">\&quot;,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="s2">    \&quot;axis\&quot;: \&quot;pov\&quot;,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="s2">    \&quot;parameters\&quot;: {</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="s2">      \&quot;focalizer\&quot;: \&quot;narrator\&quot;,</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="s2">      \&quot;distance\&quot;: \&quot;internal\&quot;,</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="s2">      \&quot;reliability\&quot;: \&quot;unreliable\&quot;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="s2">    },</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="s2">    \&quot;operator\&quot;: \&quot;analyst\&quot;</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="s2">  }&quot;</span>
+</code></pre></div>
+<p>The graph now has a <code>Perspective</code> node attached to Scene 1:
+<code>focalizer=narrator, distance=internal, reliability=unreliable</code>.</p>
+<hr />
+<h2 id="step-6-apply-mood-across-all-four-scenes-bulk-transform">Step 6 — Apply mood across all four scenes (bulk transform)<a class="headerlink" href="#step-6-apply-mood-across-all-four-scenes-bulk-transform" title="Permanent link">&para;</a></h2>
+<p>The story escalates from mild unease to paranoid fixation. Apply a single
+bulk mood transform that sets the baseline affective register across the
+entire narrative, then refine per scene if needed.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/transforms/apply-bulk<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="s1">    &quot;narrative_id&quot;: &quot;yw-gilman-001&quot;,</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="s1">    &quot;axis&quot;: &quot;mood&quot;,</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="s1">    &quot;parameters&quot;: {</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="s1">      &quot;label&quot;: &quot;dread&quot;,</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="s1">      &quot;valence&quot;: -0.75,</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="s1">      &quot;arousal&quot;: 0.6</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="s1">    },</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="s1">    &quot;operator&quot;: &quot;analyst&quot;</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="s1">  }&#39;</span>
+</code></pre></div>
+<p>Response:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;narrative_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yw-gilman-001&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&quot;applied_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;scene_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s-…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mood&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;accepted&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;scene_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s-…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mood&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;accepted&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;scene_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s-…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mood&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;accepted&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;scene_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s-…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;axis&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mood&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;accepted&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>All four scenes now carry <code>MoodState { label: "dread", valence: -0.75,
+arousal: 0.6 }</code>. The high-arousal negative mood will raise the tension score
+on edges from these scenes.</p>
+<p>Optionally, sharpen Scene 4 (the climax) further:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/transforms/apply<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="s2">    \&quot;scene_id\&quot;: \&quot;</span><span class="nv">$SCENE_4</span><span class="s2">\&quot;,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="s2">    \&quot;axis\&quot;: \&quot;mood\&quot;,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="s2">    \&quot;parameters\&quot;: {</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="s2">      \&quot;label\&quot;: \&quot;paranoia\&quot;,</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="s2">      \&quot;valence\&quot;: -0.95,</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="s2">      \&quot;arousal\&quot;: 0.9</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="s2">    },</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="s2">    \&quot;operator\&quot;: \&quot;analyst\&quot;</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="s2">  }&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="step-7-tag-a-key-atom-with-a-hermeneutic-code">Step 7 — Tag a key atom with a hermeneutic code<a class="headerlink" href="#step-7-tag-a-key-atom-with-a-hermeneutic-code" title="Permanent link">&para;</a></h2>
+<p>The sentence <em>"There are things in that paper that nobody knows but me, or
+ever will"</em> is the pivot of the story's mystery. Tag it as <code>hermeneutic</code>
+(+0.4 tension) to mark it as the central enigma.</p>
+<p>Find the atom ID from the JSON render:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>curl<span class="w"> </span>-sX<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/render/yw-gilman-001<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;:&quot;json&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.content | fromjson | .narrative.scenes[].atoms[]</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="s1">    | select(.text | contains(&quot;nobody knows but me&quot;))</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="s1">    | {id, text}&#39;</span>
+</code></pre></div>
+<p>Apply the code overlay:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/transforms/apply<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s2">&quot;{</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="s2">    \&quot;scene_id\&quot;: \&quot;</span><span class="nv">$SCENE_3</span><span class="s2">\&quot;,</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="s2">    \&quot;axis\&quot;: \&quot;code_overlay\&quot;,</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="s2">    \&quot;parameters\&quot;: {</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="s2">      \&quot;atom_id\&quot;: \&quot;</span><span class="nv">$ENIGMA_ATOM</span><span class="s2">\&quot;,</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="s2">      \&quot;code\&quot;: \&quot;hermeneutic\&quot;,</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="s2">      \&quot;label\&quot;: \&quot;The secret knowledge — what does she see that others cannot?\&quot;</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="s2">    },</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="s2">    \&quot;operator\&quot;: \&quot;analyst\&quot;</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="s2">  }&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="step-8-revise-an-atoms-prose-text">Step 8 — Revise an atom's prose text<a class="headerlink" href="#step-8-revise-an-atoms-prose-text" title="Permanent link">&para;</a></h2>
+<p>The original sentence in Scene 4 reads:</p>
+<blockquote>
+<p><em>"I wonder—I begin to think—I wish John would take me away from here!"</em></p>
+</blockquote>
+<p>For a closer third-person rewrite of this passage, revise the atom directly:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nv">ATOM_ID</span><span class="o">=</span><span class="s2">&quot;&lt;atom-id-from-json-render&gt;&quot;</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>curl<span class="w"> </span>-X<span class="w"> </span>PATCH<span class="w"> </span>http://localhost:8000/v1/atoms/<span class="nv">$ATOM_ID</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="s1">    &quot;text&quot;: &quot;She wondered, and then began to think, and then knew with certainty that she wanted to leave.&quot;,</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="s1">    &quot;operator&quot;: &quot;editor&quot;,</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="s1">    &quot;reason&quot;: &quot;shift from first-person journal to close third-person for comparison&quot;</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="s1">  }&#39;</span>
+</code></pre></div>
+<p>Response:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="p">{</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">&quot;atom_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;atom-…&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="nt">&quot;revision_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rev-…&quot;</span><span class="p">,</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;She wondered, and then began to think, and then knew with certainty that she wanted to leave.&quot;</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>The original text is preserved in the graph under <code>HAS_REVISION</code>. To inspect
+the full revision chain:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>curl<span class="w"> </span>http://localhost:8000/v1/atoms/<span class="nv">$ATOM_ID</span>/revisions
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="p">{</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="nt">&quot;atom_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;atom-…&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="nt">&quot;revisions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rev-…&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="w">      </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;She wondered, and then began to think, and then knew with certainty that she wanted to leave.&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a><span class="w">      </span><span class="nt">&quot;revised_at&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-26T14:32:00&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="w">      </span><span class="nt">&quot;operator&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;editor&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="w">      </span><span class="nt">&quot;reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;shift from first-person journal to close third-person for comparison&quot;</span>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a><span class="w">  </span><span class="p">]</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="step-9-re-export-graphml-and-compare-tension">Step 9 — Re-export GraphML and compare tension<a class="headerlink" href="#step-9-re-export-graphml-and-compare-tension" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>curl<span class="w"> </span>-sX<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/render/yw-gilman-001<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;: &quot;graphml&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.content&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>yw_transformed.graphml
+</code></pre></div>
+<p>Open <code>yw_transformed.graphml</code> in yEd alongside the baseline. The changes are
+immediately visible in the edge colors:</p>
+<table>
+<thead>
+<tr>
+<th>Edge</th>
+<th>Baseline</th>
+<th>After transforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scene containment (HAS_SCENE)</td>
+<td>Grey #A0A0A0</td>
+<td>Grey #A0A0A0</td>
+</tr>
+<tr>
+<td>Temporal sequence (PRECEDES)</td>
+<td>Steel blue #4682B4</td>
+<td>Steel blue #4682B4</td>
+</tr>
+<tr>
+<td>Mood edges from scenes with <code>dread</code></td>
+<td>—</td>
+<td>Orange #FF8C00</td>
+</tr>
+<tr>
+<td>Hermeneutic code atom → events</td>
+<td>—</td>
+<td>Crimson #DC143C</td>
+</tr>
+<tr>
+<td>Scene 4 with <code>paranoia</code> mood</td>
+<td>—</td>
+<td>Dark red #8B0000</td>
+</tr>
+</tbody>
+</table>
+<p>The escalation from Scene 1 to Scene 4 is now visible as a color gradient
+from orange through crimson to dark red — the graph shows the story's tension
+arc spatially.</p>
+<hr />
+<h2 id="step-10-export-revised-prose">Step 10 — Export revised prose<a class="headerlink" href="#step-10-export-revised-prose" title="Permanent link">&para;</a></h2>
+<p>Render the narrative back to Markdown with all transforms and the atom
+revision applied:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>curl<span class="w"> </span>-sX<span class="w"> </span>POST<span class="w"> </span>http://localhost:8000/v1/render/yw-gilman-001<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;type&quot;: &quot;prose&quot;}&#39;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.content&#39;</span><span class="w"> </span>&gt;<span class="w"> </span>yw_revised.md
+</code></pre></div>
+<p>Output structure:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="gh"># The Yellow Wallpaper</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="gu">## The House</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="k">&gt; </span><span class="ge">POV: narrator (internal, unreliable) | Mood: dread</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>It is very seldom that mere ordinary people like John and myself secure
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>ancestral halls for the summer. A colonial mansion, a hereditary estate,
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>I would say a haunted house, and reach the height of romantic felicity—but
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>that would be asking too much of fate! Still I will proudly declare that
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>there is something queer about it.
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>…
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>
+<a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="gu">## The Room</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>
+<a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="k">&gt; </span><span class="ge">Mood: dread</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a>
+<a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a>I don&#39;t like our room a bit. …
+<a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a>
+<a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="gu">## The Pattern</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a>
+<a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="k">&gt; </span><span class="ge">Mood: dread</span>
+<a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a>
+<a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a>I lie here on this great immovable bed—it is nailed down, I believe—and
+<a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a>follow that pattern about by the hour. …
+<a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>
+<a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a><span class="gu">## The Figure</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a>
+<a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a><span class="k">&gt; </span><span class="ge">Mood: paranoia</span>
+<a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a>
+<a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a>Behind that outside pattern the dim shapes get clearer every day. …
+<a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>She wondered, and then began to think, and then knew with certainty
+<a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a>that she wanted to leave.
+<a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a>
+<a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a>At night in any kind of light, in twilight, candlelight, lamplight, and
+<a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a>worst of all by moonlight, it becomes bars! …
+</code></pre></div>
+<p>Key things to notice:</p>
+<ul>
+<li>Section headings come from <code>scene.summary</code> (the <code>##</code> headings in the source
+  Markdown), not from scene sequence numbers.</li>
+<li>Scene 1 shows both POV and Mood context because both transforms were applied.</li>
+<li>Scenes 2–3 show only Mood context.</li>
+<li>Scene 4 shows the sharpened <code>paranoia</code> mood.</li>
+<li>The revised atom text (<em>"She wondered, and then began to think…"</em>) appears
+  in Scene 4 in place of the original first-person phrasing. The original is
+  still in the graph, reachable via <code>GET /v1/atoms/{id}/revisions</code>.</li>
+</ul>
+<hr />
+<h2 id="transform-audit-trail">Transform audit trail<a class="headerlink" href="#transform-audit-trail" title="Permanent link">&para;</a></h2>
+<p>Every operation is recorded. Query the full history for the narrative:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Narrative</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;yw-gilman-001&quot;</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_SCENE</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">:</span><span class="n">Scene</span><span class="p">)</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">t</span><span class="p">:</span><span class="n">Transform</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">APPLIED_TO</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">summary</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">scene</span><span class="p">,</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="w">       </span><span class="n">t</span><span class="p">.</span><span class="n">axis</span><span class="w">     </span><span class="k">AS</span><span class="w"> </span><span class="n">axis</span><span class="p">,</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="w">       </span><span class="n">t</span><span class="p">.</span><span class="n">operator</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">operator</span><span class="p">,</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="w">       </span><span class="n">t</span><span class="p">.</span><span class="n">applied_at</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">when</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">applied_at</span><span class="w"> </span><span class="k">ASC</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>scene</th>
+<th>axis</th>
+<th>operator</th>
+<th>when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The House</td>
+<td>pov</td>
+<td>analyst</td>
+<td>2026-04-26T14:00:…</td>
+</tr>
+<tr>
+<td>The House</td>
+<td>mood</td>
+<td>analyst</td>
+<td>2026-04-26T14:01:…</td>
+</tr>
+<tr>
+<td>The Room</td>
+<td>mood</td>
+<td>analyst</td>
+<td>2026-04-26T14:01:…</td>
+</tr>
+<tr>
+<td>The Pattern</td>
+<td>mood</td>
+<td>analyst</td>
+<td>2026-04-26T14:01:…</td>
+</tr>
+<tr>
+<td>The Figure</td>
+<td>mood</td>
+<td>analyst</td>
+<td>2026-04-26T14:01:…</td>
+</tr>
+<tr>
+<td>The Pattern</td>
+<td>code_overlay</td>
+<td>analyst</td>
+<td>2026-04-26T14:02:…</td>
+</tr>
+<tr>
+<td>The Figure</td>
+<td>mood</td>
+<td>analyst</td>
+<td>2026-04-26T14:03:…</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>What happened</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingest with <code>format: "markdown"</code></td>
+<td>4 scenes created from <code>##</code> headings; heading text stored as <code>scene.summary</code></td>
+</tr>
+<tr>
+<td>Neo4j review</td>
+<td>Verified scene structure, atoms, characters</td>
+</tr>
+<tr>
+<td>Baseline GraphML</td>
+<td>Structural-only edges; low tension throughout</td>
+</tr>
+<tr>
+<td>POV transform (Scene 1)</td>
+<td>Internal, unreliable narrator tagged</td>
+</tr>
+<tr>
+<td>Bulk mood transform</td>
+<td><code>dread</code> applied across all 4 scenes in one call</td>
+</tr>
+<tr>
+<td>Scene 4 mood refinement</td>
+<td>Sharpened to <code>paranoia</code> at the climax</td>
+</tr>
+<tr>
+<td>Hermeneutic code overlay</td>
+<td>Central enigma atom tagged; +0.4 tension</td>
+</tr>
+<tr>
+<td>Atom revision</td>
+<td>First-person sentence rewritten to close third-person non-destructively</td>
+</tr>
+<tr>
+<td>Transformed GraphML</td>
+<td>Tension gradient visible — orange → crimson → dark red</td>
+</tr>
+<tr>
+<td>Prose render</td>
+<td>Chapter headings restored; annotations visible; revised atom text in place</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

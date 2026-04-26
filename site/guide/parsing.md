@@ -22,29 +22,16 @@ flowchart LR
 
 ---
 
-### Stage 1 — Text preparation
+### Stage 1 — Text preparation and segmentation
 
-The raw input string is cleaned according to the declared `format`:
+The `format` field in the ingest request controls how the input is split into
+scenes. Two segmentation strategies are available:
 
-| Format | Pre-processing |
-|--------|----------------|
-| `text` | Strip leading/trailing whitespace |
-| `markdown` | Strip YAML frontmatter (`---` block), then whitespace |
-| `json` | Payload fields unpacked by the API layer before reaching the service |
+#### Plain-text segmentation (`format: "text"`, default)
 
-After this stage the input is always a plain text string.
-
----
-
-### Stage 2 — Segmentation
-
-Two splitting rules are applied in sequence:
-
-**Paragraphs → Scenes**
-
-Double newlines (`\n\n` or more) mark scene boundaries.  Each paragraph
-becomes one `Scene` node.  A short story with three paragraphs produces three
-scenes.
+Double newlines (`\n\n` or more) mark scene boundaries. Each paragraph becomes
+one `Scene` node with an empty `summary`. YAML front matter is stripped first if
+present.
 
 **Sentences → Atoms**
 
@@ -56,21 +43,64 @@ letter, or at end-of-string:
 (?<=[.!?])[\"']?\s+(?=[A-Z])  |  (?<=[.!?])[\"']?$
 ```
 
-Each resulting sentence becomes one candidate `Atom`.
+Each sentence becomes one candidate `Atom`.
 
-!!! example "Segmentation example"
+!!! example "Plain-text segmentation"
     Input:
     ```
     Alice offered the book. She smiled.
 
     Bob accepted it gratefully. He nodded once.
     ```
-    Output: 2 scenes, 4 atoms.
+    Output: 2 scenes, 4 atoms. Both scenes have `summary = ""`.
 
-    | Scene | Sequence | Atoms |
-    |-------|----------|-------|
-    | Scene 1 | 1 | "Alice offered the book." · "She smiled." |
-    | Scene 2 | 2 | "Bob accepted it gratefully." · "He nodded once." |
+    | Scene | Sequence | summary | Atoms |
+    |-------|----------|---------|-------|
+    | Scene 1 | 1 | _(empty)_ | "Alice offered the book." · "She smiled." |
+    | Scene 2 | 2 | _(empty)_ | "Bob accepted it gratefully." · "He nodded once." |
+
+---
+
+#### Markdown segmentation (`format: "markdown"`)
+
+ATX headings (`#` through `######`) are scene boundaries. The heading text
+(without the `#` sigil) becomes `scene.summary`. Prose paragraphs under a
+heading are merged into that scene — the heading is the scene boundary, not
+the blank line. YAML front matter is stripped first.
+
+```
+(?<heading>)  ^#{1,6}\s+(.+)$   →  new SceneSection(summary=capture)
+(?<prose>)    non-empty line      →  accumulated into current section sentences
+```
+
+!!! example "Markdown segmentation"
+    Input:
+    ```markdown
+    ## The House
+
+    It is very seldom that mere ordinary people secure ancestral halls.
+    I would say a haunted house—but that would be asking too much of fate!
+
+    ## The Room
+
+    I do not like our room a bit. The color is revolting.
+    ```
+    Output: 2 scenes, 4 atoms. Heading text is **not** an atom.
+
+    | Scene | Sequence | summary | Atoms |
+    |-------|----------|---------|-------|
+    | Scene 1 | 1 | The House | "It is very seldom…" · "I would say a haunted house…" |
+    | Scene 2 | 2 | The Room | "I do not like our room a bit." · "The color is revolting." |
+
+!!! note "Multiple paragraphs within a section"
+    All prose paragraphs under one heading are merged into a single scene.
+    A chapter with five paragraphs and one `##` heading produces one scene
+    with atoms from all five paragraphs — not five scenes.
+
+!!! warning "Headings with no prose are skipped"
+    A heading line immediately followed by another heading (no prose between
+    them) produces no scene. A scene is only created when there is at least
+    one prose sentence under the heading.
 
 ---
 
@@ -178,8 +208,8 @@ sequenceDiagram
 
     User->>API: POST /v1/notes/import
     API->>IS: ingest(payload)
-    IS->>IS: prepare_text()
-    IS->>IS: segment_text() → scenes × sentences
+    IS->>IS: _segment() → SceneSection list
+    Note right of IS: markdown: headings → scene boundaries<br/>text: paragraphs → scene boundaries
     loop per scene
         IS->>IS: extract_entities()
         IS->>IS: detect_events()

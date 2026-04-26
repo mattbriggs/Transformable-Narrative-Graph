@@ -50,13 +50,16 @@ class ProseRenderer:
     def _render_scene(self, scene: Scene) -> list[str]:
         """Render a single scene block.
 
+        Uses ``scene.summary`` as the heading when set (populated by the
+        Markdown segmenter from chapter/section headings). Falls back to
+        ``## Scene N`` for plain-text ingested scenes.
+
         :param scene: The scene to render.
         :returns: List of Markdown lines for this scene.
         """
         lines: list[str] = []
-        lines.append(f"## Scene {scene.sequence}")
-        if scene.summary:
-            lines.append(f"*{scene.summary}*")
+        heading = scene.summary if scene.summary else f"Scene {scene.sequence}"
+        lines.append(f"## {heading}")
         lines.append("")
 
         # Context block

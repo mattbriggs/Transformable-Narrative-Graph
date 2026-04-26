@@ -1,0 +1,1322 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/graphml" xmlns:y="http://www.yworks.com/xml/graphml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/graphml http://www.yworks.com/xml/schema/graphml/1.1/ygraphml.xsd">
+  <key id="d3" for="node" attr.name="nodegraphics" attr.type="yfiles.type" yfiles.type="nodegraphics" />
+  <key id="d6" for="edge" attr.name="edgegraphics" attr.type="yfiles.type" yfiles.type="edgegraphics" />
+  <key id="d7" for="node" attr.name="description" attr.type="string" />
+  <key id="d8" for="edge" attr.name="tension_score" attr.type="double" />
+  <graph id="G" edgedefault="directed">
+    <node id="yw-gilman-001">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#4A90D9" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">The Yellow Wallpaper</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="5d99befe-565d-4cb4-9f5c-0ffca8371fbe">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#7ED321" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">Scene 1: The House</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="c6fddcdd-7c6a-45cb-845b-b0cf611f3ab0">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">It is very seldom that mere ordinary people like J</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="b91eff4c-56ba-4fce-ab83-0807ea537259">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">ancestral halls for the summer.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="c83794bd-127a-4dd6-a213-0d80c4ee713b">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">A colonial mansion, a hereditary estate,</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="a9247113-400f-470c-80f3-c36490d61b47">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I would say a haunted house, and reach the height </y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="e21cc5e6-ed45-4b73-b6a0-a787e9758aa5">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">that would be asking too much of fate!</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="7b0ed8a8-5b86-44db-932a-de8caeccb608">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">Still I will proudly declare that</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="f9bb6906-ac7b-4ed9-9092-d159f198c380">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">there is something queer about it.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="f79ab420-839b-46d9-b9d1-11144eb39832">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">John laughs at me, of course, but one expects that</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="2586ddc9-2432-4dab-8d9d-c40c2813b2c9">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">John is</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="3e592a67-601d-4ea2-bda4-e4da21ed5aaf">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">practical in the extreme.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="b962c48c-9cae-4eff-8636-4075093fea00">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">He has no patience with faith, an intense horror</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="5a16ecb7-6b64-4806-bbaa-1d5bef7f7d51">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">of superstition, and he scoffs openly at any talk </y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="549cecb3-a29f-41dd-9479-c20bcc8059e4">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">and seen and put down in figures.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="8fcf3493-4b23-4f24-ad20-5d7e927b7edd">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">John is a physician, and perhaps—(I would not say </y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="5294f609-d90f-4614-843d-3b83ef6cd978">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">course, but this is dead paper and a great relief </y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="ef484c26-abbd-4b28-83f6-76aa988b3964">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">is one reason I do not get well faster.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="365ed5e9-093e-4f28-9dc1-0cb9c649e2e3">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">You see, he does not believe I am</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="246fea1d-abaa-41ce-9853-f9c055c9cdc5">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">sick!</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="5494fdd9-9081-4538-b3e2-d4d8142a0676">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#7ED321" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">Scene 2: The Room</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="6a3bfe26-8f13-4cf2-8805-472144ff833d">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I don't like our room a bit.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="dc36c21e-374d-4713-af70-276ab70c4128">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I wanted one downstairs that opened on the</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="bee24862-ff51-432f-a1f2-459d78bcd498">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">piazza and had roses all over the window, and such</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="8d40eefc-b244-403a-800c-8e74151d18d3">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">chintz hangings!</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="4d0401bc-e38b-4390-9a92-83c8d1e2f6fe">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">But John would not hear of it.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="2e00b4e6-ffbf-41f3-9f57-b06267a3e370">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">It is a big, airy room, the whole floor nearly, wi</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="7091a9c4-6199-4790-a6ff-bf19506845c0">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">ways, and air and sunshine galore.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="6b1af2fd-c01c-4b34-86c6-cfb2f3ae255e">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">The paint and paper look as if a boys'</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="ac6b08ed-5fb2-495c-80e5-65173f6b6fe2">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">school had used it.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="2d8be47f-b706-4f18-92ba-50350b5b31fa">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">It is stripped off—the paper—in great patches all</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="a47d87a6-3c11-4d69-98b1-cd6de375a5c6">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">around the head of my bed, about as far as I can r</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="5fa9acc1-6443-479d-8519-cd43b8b6d640">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">place on the other side of the room low down.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="3fe21931-6efa-4ac6-a92d-d1ceb4842fc2">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I never saw a worse paper</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="e594a79d-1d14-4e44-8a37-9b322554f0d9">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">in my life.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="01b022e6-3af0-4f20-bf38-dcd4108216b9">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">The color is repellant, almost revolting; a smould</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="feb6ccda-cef2-407d-a738-8da1b599cf57">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">strangely faded by the slow-turning sunlight.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="90c3506a-7299-4ce1-a609-e3014dc07418">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">It is a dull yet lurid</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="d4a5f99f-dc67-4c59-8279-4f382c7b7e59">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">orange in some places, a sickly sulphur tint in ot</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="f5eee384-d8f7-4bad-a39d-efaf776e5c8c">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#7ED321" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">Scene 3: The Pattern</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="a11f67da-0788-439e-9b68-49843b7ee9cb">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I lie here on this great immovable bed—it is naile</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="ef056b20-c523-4e63-aec6-bf6d63c9fcb6">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">follow that pattern about by the hour.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="494c2a68-5214-41fa-b4fe-ccc74d46973d">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">It is as good as gymnastics, I</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="9ba4efb6-5d06-4b88-a76d-34f32d2f6861">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">assure you.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="eb6a9f65-36a0-4851-8ba8-b40e805bea2a">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I know a little of the principle of design, and I </y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="96d45bcf-cb01-441d-81d2-6186f807033c">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">thing was not arranged on any laws of radiation, o</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="9b63f9f3-790b-4e4b-81a2-ed6cfc8a3669">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">repetition, or symmetry, or anything else that I e</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="e75dcce9-5cd8-4a58-ae8b-ea926832ec6c">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">The whole thing goes horizontally, too, at least i</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="57dd9fdc-2e69-40bf-a3e8-a37ff5fea4f2">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">myself in trying to distinguish the order of its g</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="f48eb3bd-5523-40c7-8348-d29c1b1641e2">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">It makes me tired to follow it.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="55efb2f3-5b3c-4060-87ea-6d4f480d5192">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I will take a nap, I guess.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="6e4bd054-7257-47ce-a380-b66aea398360">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#7ED321" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">Scene 4: The Figure</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="0e6a1044-5fe1-4581-a1e4-7a32481952f3">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">Behind that outside pattern the dim shapes get cle</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="41f621f6-be25-4c37-b269-ee225a0fce89">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">It is</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="5b82da88-431c-487d-b913-5a1edd1b0c2e">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">always the same shape, only very numerous.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="36a0ebdb-bfe2-48d4-87b6-a1b294466002">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">And it is like a woman stooping</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="0c473472-acb3-4518-adf5-0068aaa7f26e">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">down and creeping about behind that pattern.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="301ab833-8f00-4d05-812a-aed23797c63b">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I don't like it a bit.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="53219c38-62ce-4083-8c42-28240e86f112">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">I wonder—I begin to think—I wish John would take m</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="4b9ff50c-d3cc-469d-b1a9-2fa4f9f3d156">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">At night in any kind of light, in twilight, candle</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="b0ed9c76-19e1-40bd-9ad9-50532c18d928">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">worst of all by moonlight, it becomes bars!</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="342d8a04-e746-4d0e-b424-74d1a1c4531d">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">The outside pattern I mean,</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="133f29a0-8c03-4a16-8848-38cfb38c7dc6">
+      <data key="d3">
+        <y:ShapeNode>
+          <y:Geometry width="120.0" height="40.0" />
+          <y:Fill color="#F5A623" transparent="false" />
+          <y:BorderStyle color="#000000" type="line" width="1.0" />
+          <y:NodeLabel alignment="center" fontFamily="Dialog" fontSize="11" textColor="#000000" visible="true">and the woman behind it is as plain as can be.</y:NodeLabel>
+          <y:Shape type="roundrectangle" />
+        </y:ShapeNode>
+      </data>
+    </node>
+    <edge id="e1" source="yw-gilman-001" target="5d99befe-565d-4cb4-9f5c-0ffca8371fbe">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">HAS_SCENE</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e2" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="c6fddcdd-7c6a-45cb-845b-b0cf611f3ab0">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e3" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="b91eff4c-56ba-4fce-ab83-0807ea537259">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e4" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="c83794bd-127a-4dd6-a213-0d80c4ee713b">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e5" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="a9247113-400f-470c-80f3-c36490d61b47">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e6" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="e21cc5e6-ed45-4b73-b6a0-a787e9758aa5">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e7" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="7b0ed8a8-5b86-44db-932a-de8caeccb608">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e8" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="f9bb6906-ac7b-4ed9-9092-d159f198c380">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e9" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="f79ab420-839b-46d9-b9d1-11144eb39832">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e10" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="2586ddc9-2432-4dab-8d9d-c40c2813b2c9">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e11" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="3e592a67-601d-4ea2-bda4-e4da21ed5aaf">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e12" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="b962c48c-9cae-4eff-8636-4075093fea00">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e13" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="5a16ecb7-6b64-4806-bbaa-1d5bef7f7d51">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e14" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="549cecb3-a29f-41dd-9479-c20bcc8059e4">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e15" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="8fcf3493-4b23-4f24-ad20-5d7e927b7edd">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e16" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="5294f609-d90f-4614-843d-3b83ef6cd978">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e17" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="ef484c26-abbd-4b28-83f6-76aa988b3964">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e18" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="365ed5e9-093e-4f28-9dc1-0cb9c649e2e3">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e19" source="5d99befe-565d-4cb4-9f5c-0ffca8371fbe" target="246fea1d-abaa-41ce-9853-f9c055c9cdc5">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e20" source="yw-gilman-001" target="5494fdd9-9081-4538-b3e2-d4d8142a0676">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">HAS_SCENE</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e21" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="6a3bfe26-8f13-4cf2-8805-472144ff833d">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e22" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="dc36c21e-374d-4713-af70-276ab70c4128">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e23" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="bee24862-ff51-432f-a1f2-459d78bcd498">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e24" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="8d40eefc-b244-403a-800c-8e74151d18d3">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e25" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="4d0401bc-e38b-4390-9a92-83c8d1e2f6fe">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e26" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="2e00b4e6-ffbf-41f3-9f57-b06267a3e370">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e27" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="7091a9c4-6199-4790-a6ff-bf19506845c0">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e28" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="6b1af2fd-c01c-4b34-86c6-cfb2f3ae255e">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e29" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="ac6b08ed-5fb2-495c-80e5-65173f6b6fe2">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e30" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="2d8be47f-b706-4f18-92ba-50350b5b31fa">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e31" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="a47d87a6-3c11-4d69-98b1-cd6de375a5c6">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e32" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="5fa9acc1-6443-479d-8519-cd43b8b6d640">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e33" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="3fe21931-6efa-4ac6-a92d-d1ceb4842fc2">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e34" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="e594a79d-1d14-4e44-8a37-9b322554f0d9">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e35" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="01b022e6-3af0-4f20-bf38-dcd4108216b9">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e36" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="feb6ccda-cef2-407d-a738-8da1b599cf57">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e37" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="90c3506a-7299-4ce1-a609-e3014dc07418">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e38" source="5494fdd9-9081-4538-b3e2-d4d8142a0676" target="d4a5f99f-dc67-4c59-8279-4f382c7b7e59">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e39" source="yw-gilman-001" target="f5eee384-d8f7-4bad-a39d-efaf776e5c8c">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">HAS_SCENE</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e40" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="a11f67da-0788-439e-9b68-49843b7ee9cb">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e41" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="ef056b20-c523-4e63-aec6-bf6d63c9fcb6">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e42" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="494c2a68-5214-41fa-b4fe-ccc74d46973d">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e43" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="9ba4efb6-5d06-4b88-a76d-34f32d2f6861">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e44" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="eb6a9f65-36a0-4851-8ba8-b40e805bea2a">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e45" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="96d45bcf-cb01-441d-81d2-6186f807033c">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e46" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="9b63f9f3-790b-4e4b-81a2-ed6cfc8a3669">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e47" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="e75dcce9-5cd8-4a58-ae8b-ea926832ec6c">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e48" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="57dd9fdc-2e69-40bf-a3e8-a37ff5fea4f2">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e49" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="f48eb3bd-5523-40c7-8348-d29c1b1641e2">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e50" source="f5eee384-d8f7-4bad-a39d-efaf776e5c8c" target="55efb2f3-5b3c-4060-87ea-6d4f480d5192">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e51" source="yw-gilman-001" target="6e4bd054-7257-47ce-a380-b66aea398360">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">HAS_SCENE</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e52" source="6e4bd054-7257-47ce-a380-b66aea398360" target="0e6a1044-5fe1-4581-a1e4-7a32481952f3">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e53" source="6e4bd054-7257-47ce-a380-b66aea398360" target="41f621f6-be25-4c37-b269-ee225a0fce89">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e54" source="6e4bd054-7257-47ce-a380-b66aea398360" target="5b82da88-431c-487d-b913-5a1edd1b0c2e">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e55" source="6e4bd054-7257-47ce-a380-b66aea398360" target="36a0ebdb-bfe2-48d4-87b6-a1b294466002">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e56" source="6e4bd054-7257-47ce-a380-b66aea398360" target="0c473472-acb3-4518-adf5-0068aaa7f26e">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e57" source="6e4bd054-7257-47ce-a380-b66aea398360" target="301ab833-8f00-4d05-812a-aed23797c63b">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e58" source="6e4bd054-7257-47ce-a380-b66aea398360" target="53219c38-62ce-4083-8c42-28240e86f112">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e59" source="6e4bd054-7257-47ce-a380-b66aea398360" target="4b9ff50c-d3cc-469d-b1a9-2fa4f9f3d156">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e60" source="6e4bd054-7257-47ce-a380-b66aea398360" target="b0ed9c76-19e1-40bd-9ad9-50532c18d928">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e61" source="6e4bd054-7257-47ce-a380-b66aea398360" target="342d8a04-e746-4d0e-b424-74d1a1c4531d">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e62" source="6e4bd054-7257-47ce-a380-b66aea398360" target="133f29a0-8c03-4a16-8848-38cfb38c7dc6">
+      <data key="d8">0.0</data>
+      <data key="d6">
+        <y:PolyLineEdge>
+          <y:LineStyle color="#A0A0A0" type="line" width="2.0" />
+          <y:Arrows source="none" target="standard" />
+          <y:EdgeLabel alignment="center" fontFamily="Dialog" fontSize="9" textColor="#000000" visible="true">CONTAINS</y:EdgeLabel>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+  </graph>
+</graphml>

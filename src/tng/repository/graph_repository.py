@@ -81,7 +81,7 @@ class GraphRepository:
         """Return True when Neo4j is reachable and the database responds.
 
         :returns: ``True`` on success.
-        :raises: Any ``neo4j`` exception on failure — callers decide how to
+        :raises Exception: On Neo4j connectivity failure — callers decide how to
             handle it.
         """
         result = self._driver.execute_query(
@@ -252,6 +252,19 @@ class GraphRepository:
 
     # ── Atom ──────────────────────────────────────────────────────────────────
 
+    def get_scene_ids(self, narrative_id: str) -> list[str]:
+        """Return scene IDs for a narrative in sequence order.
+
+        :param narrative_id: The narrative's unique identifier.
+        :returns: List of scene ID strings, ordered by sequence.
+        """
+        records, _, _ = self._driver.execute_query(
+            Q.GET_SCENE_IDS_FOR_NARRATIVE,
+            narrative_id=narrative_id,
+            database_=self._db,
+        )
+        return [rec["scene_id"] for rec in records]
+
     def _save_atom_tx(self, tx: Any, atom: Atom, scene_id: str) -> None:
         tx.run(
             Q.MERGE_ATOM,
@@ -283,7 +296,7 @@ class GraphRepository:
             atoms.append(
                 Atom(
                     id=node["id"],
-                    text=node["text"],
+                    text=rec["resolved_text"],
                     kind=AtomKind(node.get("kind", "descriptive")),
                     surface_order=node.get("surface_order", 0),
                     confidence=node.get("confidence", 1.0),
@@ -667,6 +680,68 @@ class GraphRepository:
             transforms=transforms,
             event_relations=event_relations,
         )
+
+    # ── Atom revisions ────────────────────────────────────────────────────────
+
+    def revise_atom(
+        self,
+        atom_id: str,
+        revision_id: str,
+        text: str,
+        revised_at: datetime,
+        operator: str,
+        reason: str,
+    ) -> bool:
+        """Create an AtomRevision node and re-point CURRENT_REVISION.
+
+        The old CURRENT_REVISION edge is detached (not deleted) and a
+        SUPERSEDES edge is added from the new revision to the old one.
+
+        :param atom_id: The target Atom's ID.
+        :param revision_id: Pre-generated ID for the new AtomRevision node.
+        :param text: Revised prose text.
+        :param revised_at: UTC timestamp.
+        :param operator: Identifier of the requesting user/system.
+        :param reason: Optional reason for the change.
+        :returns: ``True`` if the atom was found and revised.
+        """
+
+        def _write(tx: Any) -> Any:
+            return tx.run(
+                Q.CREATE_ATOM_REVISION,
+                atom_id=atom_id,
+                revision_id=revision_id,
+                text=text,
+                revised_at=_dt_str(revised_at),
+                operator=operator,
+                reason=reason,
+            ).single()
+
+        with self._driver.session(database=self._db) as session:
+            result = session.execute_write(_write)
+        return result is not None
+
+    def get_atom_revisions(self, atom_id: str) -> list[dict[str, Any]]:
+        """Return all AtomRevision nodes for an atom, oldest first.
+
+        :param atom_id: The target Atom's ID.
+        :returns: List of revision dicts with ``id``, ``text``, ``revised_at``,
+            ``operator``, and ``reason`` keys.
+        """
+        records, _, _ = self._driver.execute_query(
+            Q.GET_ATOM_REVISIONS, atom_id=atom_id, database_=self._db
+        )
+        return [
+            {
+                "id": rec["r"]["id"],
+                "atom_id": rec["r"]["atom_id"],
+                "text": rec["r"]["text"],
+                "revised_at": rec["r"]["revised_at"],
+                "operator": rec["r"].get("operator", "system"),
+                "reason": rec["r"].get("reason", ""),
+            }
+            for rec in records
+        ]
 
     def get_event_relations(self, narrative_id: str) -> list[EventRelation]:
         """Fetch all inter-event causal and temporal relationships.

@@ -94,6 +94,12 @@ RETURN s
 ORDER BY s.sequence
 """
 
+GET_SCENE_IDS_FOR_NARRATIVE = """
+MATCH (n:Narrative {id: $narrative_id})-[:HAS_SCENE]->(s:Scene)
+RETURN s.id AS scene_id
+ORDER BY s.sequence
+"""
+
 # ── Atom CRUD ─────────────────────────────────────────────────────────────────
 
 MERGE_ATOM = """
@@ -111,7 +117,8 @@ RETURN a
 
 GET_ATOMS_FOR_SCENE = """
 MATCH (s:Scene {id: $scene_id})-[:CONTAINS]->(a:Atom)
-RETURN a
+OPTIONAL MATCH (a)-[:CURRENT_REVISION]->(r:AtomRevision)
+RETURN a, coalesce(r.text, a.text) AS resolved_text
 ORDER BY a.surface_order
 """
 
@@ -332,6 +339,41 @@ SET t.axis       = 'code_overlay',
 MERGE (t)-[:APPLIED_TO]->(s)
 MERGE (t)-[:PRODUCED]->(ct)
 RETURN t, ct
+"""
+
+# ── Atom revision operations ──────────────────────────────────────────────────
+
+CREATE_ATOM_REVISION = """
+MATCH (a:Atom {id: $atom_id})
+OPTIONAL MATCH (a)-[old_cur:CURRENT_REVISION]->(prev:AtomRevision)
+DELETE old_cur
+WITH a, prev
+CREATE (r:AtomRevision {
+    id:         $revision_id,
+    atom_id:    $atom_id,
+    text:       $text,
+    revised_at: $revised_at,
+    operator:   $operator,
+    reason:     $reason
+})
+MERGE (a)-[:CURRENT_REVISION]->(r)
+MERGE (a)-[:HAS_REVISION]->(r)
+WITH a, r, prev
+FOREACH (_ IN CASE WHEN prev IS NOT NULL THEN [1] ELSE [] END |
+    MERGE (r)-[:SUPERSEDES]->(prev)
+)
+RETURN r
+"""
+
+GET_ATOM_REVISIONS = """
+MATCH (a:Atom {id: $atom_id})-[:HAS_REVISION]->(r:AtomRevision)
+RETURN r
+ORDER BY r.revised_at ASC
+"""
+
+GET_CURRENT_REVISION_TEXT = """
+MATCH (a:Atom {id: $atom_id})-[:CURRENT_REVISION]->(r:AtomRevision)
+RETURN r.text AS text, r.id AS revision_id
 """
 
 GET_TRANSFORM = """

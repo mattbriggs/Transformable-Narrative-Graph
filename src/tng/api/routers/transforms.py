@@ -12,6 +12,8 @@ from fastapi import APIRouter, Depends, HTTPException, status
 
 from tng.api.dependencies import get_transform_service
 from tng.api.schemas import (
+    BulkTransformRequest,
+    BulkTransformResponse,
     TransformRecord,
     TransformRequest,
     TransformResponse,
@@ -74,6 +76,61 @@ def apply_transform(
         axis=result.axis,
         produced_id=result.produced_id,
         status=result.status,
+    )
+
+
+@router.post(
+    "/apply-bulk",
+    response_model=BulkTransformResponse,
+    summary="Apply an axis transformation to every scene in a narrative",
+)
+def apply_bulk_transform(
+    body: BulkTransformRequest,
+    svc: TransformService = Depends(get_transform_service),
+) -> BulkTransformResponse:
+    """Apply a transformation axis to every scene in a narrative in one call.
+
+    Parameters are validated once before any write occurs.  On success a
+    ``Transform`` audit node is created per scene.
+
+    :param body: Bulk transformation request.
+    :param svc: Injected ``TransformService``.
+    :returns: ``BulkTransformResponse`` with per-scene results.
+    :raises HTTPException: 400 on validation errors or no scenes found;
+        500 on unexpected failures.
+    """
+    try:
+        results = svc.apply_bulk(
+            narrative_id=body.narrative_id,
+            axis=body.axis,
+            parameters=body.parameters,
+            operator=body.operator,
+        )
+    except ValueError as exc:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail=str(exc),
+        )
+    except Exception as exc:
+        logger.error("Bulk transform failed: %s", exc, exc_info=True)
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(exc),
+        )
+
+    return BulkTransformResponse(
+        narrative_id=body.narrative_id,
+        applied_count=len(results),
+        results=[
+            TransformResponse(
+                transform_id=r.transform_id,
+                scene_id=r.scene_id,
+                axis=r.axis,
+                produced_id=r.produced_id,
+                status=r.status,
+            )
+            for r in results
+        ],
     )
 
 

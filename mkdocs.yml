@@ -64,6 +64,7 @@ nav:
   - Home: index.md
   - Context: context.md
   - Guide:
+      - "Walkthrough: The Yellow Wallpaper": guide/walkthrough.md
       - Parsing Narratives: guide/parsing.md
       - Transforming Narratives: guide/transforming.md
       - Output and Rendering: guide/output.md

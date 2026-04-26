@@ -11,9 +11,9 @@ A graph-native system for representing, transforming, and rendering literary nar
 ## Quick Start (Docker)
 
 ```bash
-# 1. Create the Neo4j credentials secret file
-mkdir -p secrets
-echo "neo4j/CHANGE_ME_BEFORE_DEPLOY" > secrets/neo4j_auth.txt
+# 1. Set your Neo4j password
+cp .env.example .env
+# Edit .env and change NEO4J_PASSWORD to something secure
 
 # 2. Start the full stack
 docker compose up -d --build
@@ -21,17 +21,20 @@ docker compose up -d --build
 # 3. Confirm readiness (waits for Neo4j health check)
 curl http://localhost:8000/v1/health/ready
 
-# 4. Ingest a narrative
+# 4. Ingest a Markdown narrative (chapter headings become scene boundaries)
 curl -X POST http://localhost:8000/v1/notes/import \
   -H "Content-Type: application/json" \
   -d '{
-    "title": "The Gift",
-    "text": "Alice offered the book. She smiled.\n\nBob accepted it gratefully."
+    "title": "The Yellow Wallpaper",
+    "format": "markdown",
+    "text": "## The House\n\nIt is very seldom that mere ordinary people like John and myself secure ancestral halls for the summer.\n\n## The Room\n\nI do not like our room a bit."
   }'
 
 # 5. Open the interactive API docs
 open http://localhost:8000/docs
 ```
+
+For a complete end-to-end example using Gilman's *The Yellow Wallpaper*, see the [Walkthrough](site/guide/walkthrough.md).
 
 ## Local Development
 
@@ -79,7 +82,7 @@ src/tng/
   repository/      # GraphRepository + all Cypher queries
   ingest/          # Text segmenter, entity extractor, event detector, annotator
   services/        # IngestService, PatternService, TransformService, RenderService
-  renderers/       # Five output renderers + RendererProtocol
+  renderers/       # Six output renderers + RendererProtocol
   api/             # FastAPI app, Pydantic schemas, routers, dependency injection
   config.py        # Settings (pydantic-settings, reads .env.local)
 
@@ -92,12 +95,31 @@ ops/
   migrations/      # Idempotent Cypher schema migrations
   scripts/         # backup.sh, restore.sh
 
-docs/              # MkDocs source (Material theme + Mermaid.js)
+docs/              # MkDocs built HTML (served by GitHub Pages)
+site/              # MkDocs source (Material theme + Mermaid.js)
+design/            # SRS and implementation plans
 ```
+
+## Ingesting Markdown
+
+Pass `"format": "markdown"` to treat `#`/`##` headings as scene boundaries.
+Each heading becomes a scene whose `summary` is the heading text; the prose
+under the heading becomes that scene's atoms. Without this flag every
+paragraph is its own scene and headings are treated as prose.
+
+```json
+{
+  "title": "My Novel",
+  "format": "markdown",
+  "text": "## Chapter One\n\nAlice arrived at dusk. She knocked twice.\n\n## Chapter Two\n\nBob opened the door slowly."
+}
+```
+
+Result: 2 scenes. Scene 1 `summary = "Chapter One"`, Scene 2 `summary = "Chapter Two"`.
 
 ## Transformation Axes
 
-Apply a transformation with `POST /v1/transforms/apply`:
+Apply a transformation to one scene with `POST /v1/transforms/apply`:
 
 ```json
 {
@@ -111,6 +133,16 @@ Apply a transformation with `POST /v1/transforms/apply`:
 }
 ```
 
+Apply a transformation to **every scene** in a narrative with `POST /v1/transforms/apply-bulk`:
+
+```json
+{
+  "narrative_id": "my-narrative-id",
+  "axis": "mood",
+  "parameters": { "label": "dread", "valence": -0.8, "arousal": 0.7 }
+}
+```
+
 | Axis | Parameters |
 |------|-----------|
 | `pov` | `focalizer`, `distance` (zero/internal/external), `reliability` |
@@ -120,18 +152,43 @@ Apply a transformation with `POST /v1/transforms/apply`:
 | `reliability` | `reliability` (reliable/unreliable/ambiguous) |
 | `code_overlay` | `atom_id`, `code` (hermeneutic/proairetic/semic/symbolic/cultural) |
 
+All transforms are **non-destructive** — the previous state is detached but never deleted.
+
+## Revising Atom Text
+
+Atom text can be revised non-destructively after ingest. The original is
+preserved; all renderers use the latest revision.
+
+```bash
+# Revise a sentence
+curl -X PATCH http://localhost:8000/v1/atoms/<atom-id> \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "She hesitated at the threshold, then stepped inside.",
+    "operator": "editor",
+    "reason": "strengthen the beat"
+  }'
+
+# List full revision history
+curl http://localhost:8000/v1/atoms/<atom-id>/revisions
+```
+
 ## Render Outputs
 
 Render the current graph state with `POST /v1/render/{narrative_id}`:
 
 | Type | Content |
 |------|---------|
-| `prose` | Markdown prose draft in surface order |
+| `prose` | Markdown draft — chapter headings from `scene.summary`, POV/mood annotations |
 | `diff` | JSON transformation diff by axis |
 | `json` | Full graph state as JSON |
 | `cypher` | Reproducible Cypher MERGE script |
 | `markdown` | Structured summary with patterns and transform log |
 | `graphml` | yEd-compatible GraphML with tension-colored edges |
+
+The `prose` render uses `scene.summary` as the Markdown heading when set
+(populated by the Markdown segmenter from `##` headings), falling back to
+`## Scene N` for plain-text ingested narratives.
 
 ## GraphML Export (yEd)
 
@@ -159,8 +216,7 @@ curl -X POST http://localhost:8000/v1/render/<narrative_id> \
 | Crimson `#DC143C` | 0.8 | Strong causal + mystery code |
 | Dark red `#8B0000` | 1.0 | Prevention + high-arousal negative mood |
 
-Tension is a composite of relationship type, narrative code tags (mystery/enigma codes add up to +0.4, action codes up to +0.3), and scene mood (high arousal × negative valence).  
-See [GraphML Export design doc](site/design/graphml-export.md) for full scoring tables.
+Tension is a composite of relationship type, narrative code tags (mystery/enigma codes add up to +0.4, action codes up to +0.3), and scene mood (high arousal × negative valence).
 
 ## Documentation
 
@@ -185,6 +241,7 @@ mkdocs build
 |---------|--------|
 | Home / overview | `site/index.md` |
 | Context & theory | `site/context.md` |
+| **Guide: Walkthrough** | `site/guide/walkthrough.md` |
 | Guide: Parsing | `site/guide/parsing.md` |
 | Guide: Transforming | `site/guide/transforming.md` |
 | Guide: Output & rendering | `site/guide/output.md` |
@@ -198,9 +255,15 @@ mkdocs build
 ## Schema Migrations
 
 ```bash
-# Apply the initial schema (idempotent)
-docker compose exec neo4j cypher-shell \
+# Apply the initial schema (idempotent — safe to run on every startup)
+docker compose exec -T neo4j cypher-shell \
+  -u "${NEO4J_USER:-neo4j}" -p "${NEO4J_PASSWORD:-CHANGE_ME_BEFORE_DEPLOY}" \
   < ops/migrations/0001_initial_schema.cypher
+
+# Apply the atom revisions schema (iteration 2)
+docker compose exec -T neo4j cypher-shell \
+  -u "${NEO4J_USER:-neo4j}" -p "${NEO4J_PASSWORD:-CHANGE_ME_BEFORE_DEPLOY}" \
+  < ops/migrations/0002_atom_revisions.cypher
 ```
 
 ## Backup and Restore

@@ -13,7 +13,7 @@
       
       
       
-        <link rel="prev" href="../../context/">
+        <link rel="prev" href="../walkthrough/">
       
       
         <link rel="next" href="../transforming/">
@@ -269,7 +269,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+        <a href="../walkthrough/" class="md-tabs__link">
           
   
   
@@ -480,6 +480,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough: The Yellow Wallpaper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -555,10 +583,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stage-1-text-preparation" class="md-nav__link">
+  <a href="#stage-1-text-preparation-and-segmentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 1 — Text preparation
+        Stage 1 — Text preparation and segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stage 1 — Text preparation and segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plain-text-segmentation-format-text-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plain-text segmentation (format: "text", default)
       
     </span>
   </a>
@@ -566,13 +606,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stage-2-segmentation" class="md-nav__link">
+  <a href="#markdown-segmentation-format-markdown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 2 — Segmentation
+        Markdown segmentation (format: "markdown")
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -995,10 +1040,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stage-1-text-preparation" class="md-nav__link">
+  <a href="#stage-1-text-preparation-and-segmentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 1 — Text preparation
+        Stage 1 — Text preparation and segmentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Stage 1 — Text preparation and segmentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plain-text-segmentation-format-text-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plain-text segmentation (format: "text", default)
       
     </span>
   </a>
@@ -1006,13 +1063,18 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#stage-2-segmentation" class="md-nav__link">
+  <a href="#markdown-segmentation-format-markdown" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Stage 2 — Segmentation
+        Markdown segmentation (format: "markdown")
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1134,58 +1196,34 @@ runs in CI out of the box.</p>
     F --&gt; G[Pattern detection]
     G --&gt; H[(Neo4j graph)]</code></pre>
 <hr />
-<h3 id="stage-1-text-preparation">Stage 1 — Text preparation<a class="headerlink" href="#stage-1-text-preparation" title="Permanent link">&para;</a></h3>
-<p>The raw input string is cleaned according to the declared <code>format</code>:</p>
-<table>
-<thead>
-<tr>
-<th>Format</th>
-<th>Pre-processing</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>text</code></td>
-<td>Strip leading/trailing whitespace</td>
-</tr>
-<tr>
-<td><code>markdown</code></td>
-<td>Strip YAML frontmatter (<code>---</code> block), then whitespace</td>
-</tr>
-<tr>
-<td><code>json</code></td>
-<td>Payload fields unpacked by the API layer before reaching the service</td>
-</tr>
-</tbody>
-</table>
-<p>After this stage the input is always a plain text string.</p>
-<hr />
-<h3 id="stage-2-segmentation">Stage 2 — Segmentation<a class="headerlink" href="#stage-2-segmentation" title="Permanent link">&para;</a></h3>
-<p>Two splitting rules are applied in sequence:</p>
-<p><strong>Paragraphs → Scenes</strong></p>
-<p>Double newlines (<code>\n\n</code> or more) mark scene boundaries.  Each paragraph
-becomes one <code>Scene</code> node.  A short story with three paragraphs produces three
-scenes.</p>
+<h3 id="stage-1-text-preparation-and-segmentation">Stage 1 — Text preparation and segmentation<a class="headerlink" href="#stage-1-text-preparation-and-segmentation" title="Permanent link">&para;</a></h3>
+<p>The <code>format</code> field in the ingest request controls how the input is split into
+scenes. Two segmentation strategies are available:</p>
+<h4 id="plain-text-segmentation-format-text-default">Plain-text segmentation (<code>format: "text"</code>, default)<a class="headerlink" href="#plain-text-segmentation-format-text-default" title="Permanent link">&para;</a></h4>
+<p>Double newlines (<code>\n\n</code> or more) mark scene boundaries. Each paragraph becomes
+one <code>Scene</code> node with an empty <code>summary</code>. YAML front matter is stripped first if
+present.</p>
 <p><strong>Sentences → Atoms</strong></p>
 <p>Within each paragraph a regex splits on sentence-ending punctuation (<code>.</code>, <code>!</code>,
 <code>?</code>) followed by optional closing punctuation and a space before an upper-case
 letter, or at end-of-string:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(?&lt;=[.!?])[\&quot;&#39;]?\s+(?=[A-Z])  |  (?&lt;=[.!?])[\&quot;&#39;]?$
 </code></pre></div>
-<p>Each resulting sentence becomes one candidate <code>Atom</code>.</p>
+<p>Each sentence becomes one candidate <code>Atom</code>.</p>
 <div class="admonition example">
-<p class="admonition-title">Segmentation example</p>
+<p class="admonition-title">Plain-text segmentation</p>
 <p>Input:
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Alice offered the book. She smiled.
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Bob accepted it gratefully. He nodded once.
 </code></pre></div>
-Output: 2 scenes, 4 atoms.</p>
+Output: 2 scenes, 4 atoms. Both scenes have <code>summary = ""</code>.</p>
 <table>
 <thead>
 <tr>
 <th>Scene</th>
 <th>Sequence</th>
+<th>summary</th>
 <th>Atoms</th>
 </tr>
 </thead>
@@ -1193,15 +1231,76 @@ Output: 2 scenes, 4 atoms.</p>
 <tr>
 <td>Scene 1</td>
 <td>1</td>
+<td><em>(empty)</em></td>
 <td>"Alice offered the book." · "She smiled."</td>
 </tr>
 <tr>
 <td>Scene 2</td>
 <td>2</td>
+<td><em>(empty)</em></td>
 <td>"Bob accepted it gratefully." · "He nodded once."</td>
 </tr>
 </tbody>
 </table>
+</div>
+<hr />
+<h4 id="markdown-segmentation-format-markdown">Markdown segmentation (<code>format: "markdown"</code>)<a class="headerlink" href="#markdown-segmentation-format-markdown" title="Permanent link">&para;</a></h4>
+<p>ATX headings (<code>#</code> through <code>######</code>) are scene boundaries. The heading text
+(without the <code>#</code> sigil) becomes <code>scene.summary</code>. Prose paragraphs under a
+heading are merged into that scene — the heading is the scene boundary, not
+the blank line. YAML front matter is stripped first.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>(?&lt;heading&gt;)  ^#{1,6}\s+(.+)$   →  new SceneSection(summary=capture)
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>(?&lt;prose&gt;)    non-empty line      →  accumulated into current section sentences
+</code></pre></div>
+<div class="admonition example">
+<p class="admonition-title">Markdown segmentation</p>
+<p>Input:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gu">## The House</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>It is very seldom that mere ordinary people secure ancestral halls.
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>I would say a haunted house—but that would be asking too much of fate!
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="gu">## The Room</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>I do not like our room a bit. The color is revolting.
+</code></pre></div>
+Output: 2 scenes, 4 atoms. Heading text is <strong>not</strong> an atom.</p>
+<table>
+<thead>
+<tr>
+<th>Scene</th>
+<th>Sequence</th>
+<th>summary</th>
+<th>Atoms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scene 1</td>
+<td>1</td>
+<td>The House</td>
+<td>"It is very seldom…" · "I would say a haunted house…"</td>
+</tr>
+<tr>
+<td>Scene 2</td>
+<td>2</td>
+<td>The Room</td>
+<td>"I do not like our room a bit." · "The color is revolting."</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Multiple paragraphs within a section</p>
+<p>All prose paragraphs under one heading are merged into a single scene.
+A chapter with five paragraphs and one <code>##</code> heading produces one scene
+with atoms from all five paragraphs — not five scenes.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Headings with no prose are skipped</p>
+<p>A heading line immediately followed by another heading (no prose between
+them) produces no scene. A scene is only created when there is at least
+one prose sentence under the heading.</p>
 </div>
 <hr />
 <h3 id="stage-3-entity-extraction">Stage 3 — Entity extraction<a class="headerlink" href="#stage-3-entity-extraction" title="Permanent link">&para;</a></h3>
@@ -1210,7 +1309,7 @@ tokens matching <code>[A-Z][a-z]+</code>) that do <em>not</em> appear at the ver
 sentence.  A stop-list of pronouns, conjunctions, and common sentence-initial
 words filters obvious false positives.</p>
 <p>Confidence is assigned per entity:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>confidence = min(0.95, 0.75 + 0.05 × (mention_count − 1))
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>confidence = min(0.95, 0.75 + 0.05 × (mention_count − 1))
 </code></pre></div>
 <p>A single mention → 0.75 confidence.  Each additional mention raises it by
 0.05, capped at 0.95.</p>
@@ -1354,8 +1453,8 @@ unchanged (no duplicate nodes).</p>
 
     User-&gt;&gt;API: POST /v1/notes/import
     API-&gt;&gt;IS: ingest(payload)
-    IS-&gt;&gt;IS: prepare_text()
-    IS-&gt;&gt;IS: segment_text() → scenes × sentences
+    IS-&gt;&gt;IS: _segment() → SceneSection list
+    Note right of IS: markdown: headings → scene boundaries&lt;br/&gt;text: paragraphs → scene boundaries
     loop per scene
         IS-&gt;&gt;IS: extract_entities()
         IS-&gt;&gt;IS: detect_events()
@@ -1370,22 +1469,22 @@ unchanged (no duplicate nodes).</p>
 <hr />
 <h2 id="ingest-result">Ingest result<a class="headerlink" href="#ingest-result" title="Permanent link">&para;</a></h2>
 <p>A successful ingest returns:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;narrative_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;550e8400-e29b-41d4-a716-446655440000&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;scene_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;atom_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;event_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">&quot;pattern_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">&quot;flagged_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;narrative_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;550e8400-e29b-41d4-a716-446655440000&quot;</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;scene_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;atom_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;event_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">&quot;pattern_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">&quot;flagged_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">}</span>
 </code></pre></div>
 <p><code>flagged_count</code> is the total number of atoms and events with
 <code>needs_review=True</code>.  Review flags are queryable directly in Neo4j:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Narrative</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">id</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_SCENE</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">CONTAINS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Atom</span><span class="p">)</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">needs_review</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">sequence</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">scene</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">confidence</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">confidence</span><span class="w"> </span><span class="k">ASC</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Narrative</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">id</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_SCENE</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">CONTAINS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Atom</span><span class="p">)</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">needs_review</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">sequence</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">scene</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">confidence</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">confidence</span><span class="w"> </span><span class="k">ASC</span>
 </code></pre></div>
 <hr />
 <h2 id="replacing-pipeline-stages">Replacing pipeline stages<a class="headerlink" href="#replacing-pipeline-stages" title="Permanent link">&para;</a></h2>

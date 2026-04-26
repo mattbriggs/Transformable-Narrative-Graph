@@ -30,8 +30,11 @@ Every render call advances the narrative status to `rendered`.
 
 ## `prose` — Markdown draft
 
-Renders atoms in surface order with optional scene headers and context
-blocks showing the active perspective and mood.
+Renders atoms in surface order. Scene headings are drawn from `scene.summary`
+when set — which is populated automatically when ingesting with
+`format: "markdown"` from `##` heading text. Scenes without a summary fall back
+to `## Scene N`. Context blocks show the active perspective and mood when
+transforms have been applied.
 
 ```bash
 curl -X POST http://localhost:8000/v1/render/<narrative-id> \
@@ -40,21 +43,44 @@ curl -X POST http://localhost:8000/v1/render/<narrative-id> \
   | jq -r '.content'
 ```
 
-Output example:
+**Output — plain-text ingest (no summary set):**
 
 ```markdown
 # The Gift
 
 ## Scene 1
-*Alice offered the book. She smiled.*
 
 > POV: Alice (internal, reliable) | Mood: warm
 
 Alice offered the book. She smiled.
 
 ## Scene 2
+
 Bob accepted it gratefully. He nodded once.
 ```
+
+**Output — Markdown ingest (summary = chapter heading):**
+
+```markdown
+# The Yellow Wallpaper
+
+## The House
+
+> POV: narrator (internal, unreliable) | Mood: dread
+
+It is very seldom that mere ordinary people like John and myself secure
+ancestral halls for the summer. …
+
+## The Room
+
+> Mood: dread
+
+I do not like our room a bit. …
+```
+
+The prose render also reflects atom text revisions: if `PATCH /v1/atoms/{id}`
+has been called, the revised text appears here; the original remains in the
+graph under `HAS_REVISION`.
 
 ---
 
@@ -193,6 +219,57 @@ The render response also includes metadata:
     "format": "graphml-yed"
   }
 }
+```
+
+---
+
+## Atom revision history
+
+Atom text can be revised non-destructively after ingest. Use `PATCH` to create
+a new revision; all renderers pick up the latest text automatically.
+
+```bash
+# Revise a sentence
+curl -X PATCH http://localhost:8000/v1/atoms/<atom-id> \
+  -H "Content-Type: application/json" \
+  -d '{
+    "text": "She hesitated at the threshold, then stepped inside.",
+    "operator": "editor",
+    "reason": "strengthen the beat"
+  }'
+```
+
+```json
+{ "atom_id": "…", "revision_id": "…", "text": "She hesitated at the threshold, then stepped inside." }
+```
+
+```bash
+# Retrieve the full revision chain (oldest first)
+curl http://localhost:8000/v1/atoms/<atom-id>/revisions
+```
+
+```json
+{
+  "atom_id": "…",
+  "revisions": [
+    {
+      "id": "rev-001",
+      "text": "She hesitated at the threshold, then stepped inside.",
+      "revised_at": "2026-04-26T14:32:00",
+      "operator": "editor",
+      "reason": "strengthen the beat"
+    }
+  ]
+}
+```
+
+The original atom text is always preserved in the graph. Revision history is
+queryable in Neo4j:
+
+```cypher
+MATCH (a:Atom {id: $id})-[:HAS_REVISION]->(r:AtomRevision)
+RETURN r.text, r.revised_at, r.operator
+ORDER BY r.revised_at ASC
 ```
 
 ---

@@ -34,9 +34,9 @@ from tng.domain.enums import (
 class CodeTag(BaseModel):
     """A Barthesian code label attached to an Atom.
 
-    :param id: Unique identifier for this tag.
-    :param code: The Barthesian code category.
-    :param label: Human-readable annotation label.
+    :ivar id: Unique identifier for this tag.
+    :ivar code: The Barthesian code category.
+    :ivar label: Human-readable annotation label.
     """
 
     model_config = ConfigDict(frozen=True)
@@ -49,10 +49,10 @@ class CodeTag(BaseModel):
 class Perspective(BaseModel):
     """Focalization state for a Scene at a point in transformation history.
 
-    :param id: Unique identifier.
-    :param focalizer: ID of the Character through whose perspective events are filtered.
-    :param distance: Genettean focalization distance.
-    :param reliability: Narrator/focalizer credibility rating.
+    :ivar id: Unique identifier.
+    :ivar focalizer: ID of the Character through whose perspective events are filtered.
+    :ivar distance: Genettean focalization distance.
+    :ivar reliability: Narrator/focalizer credibility rating.
     """
 
     model_config = ConfigDict(frozen=True)
@@ -66,10 +66,10 @@ class Perspective(BaseModel):
 class MoodState(BaseModel):
     """Affective/tonal state for a Scene.
 
-    :param id: Unique identifier.
-    :param label: Free-text mood label (e.g. "melancholic", "tense").
-    :param valence: Sentiment polarity in [-1.0, 1.0]; negative = negative affect.
-    :param arousal: Activation level in [0.0, 1.0]; high = energetic.
+    :ivar id: Unique identifier.
+    :ivar label: Free-text mood label (e.g. "melancholic", "tense").
+    :ivar valence: Sentiment polarity in [-1.0, 1.0]; negative = negative affect.
+    :ivar arousal: Activation level in [0.0, 1.0]; high = energetic.
     """
 
     model_config = ConfigDict(frozen=True)
@@ -83,9 +83,9 @@ class MoodState(BaseModel):
 class GenreProfile(BaseModel):
     """Genre encoding for a Scene or Narrative.
 
-    :param id: Unique identifier.
-    :param name: Genre name (e.g. "gothic", "road novel").
-    :param conventions: JSON-serialisable list of constraint strings describing
+    :ivar id: Unique identifier.
+    :ivar name: Genre name (e.g. "gothic", "road novel").
+    :ivar conventions: JSON-serialisable list of constraint strings describing
         genre-specific narrative obligations.
     """
 
@@ -99,9 +99,9 @@ class GenreProfile(BaseModel):
 class Chronotope(BaseModel):
     """Bakhtinian time-space frame for a Scene.
 
-    :param id: Unique identifier.
-    :param time_mode: One of: cyclical, linear, suspended, compressed.
-    :param space_mode: One of: bounded, open, liminal, utopian.
+    :ivar id: Unique identifier.
+    :ivar time_mode: One of: cyclical, linear, suspended, compressed.
+    :ivar space_mode: One of: bounded, open, liminal, utopian.
     """
 
     model_config = ConfigDict(frozen=True)
@@ -114,9 +114,9 @@ class Chronotope(BaseModel):
 class Character(BaseModel):
     """A participant or focalizer in the narrative.
 
-    :param id: Unique identifier.
-    :param name: Character name as it appears in the source text.
-    :param role: Narrative role (e.g. "protagonist", "antagonist", "witness").
+    :ivar id: Unique identifier.
+    :ivar name: Character name as it appears in the source text.
+    :ivar role: Narrative role (e.g. "protagonist", "antagonist", "witness").
     """
 
     model_config = ConfigDict(frozen=True)
@@ -129,13 +129,13 @@ class Character(BaseModel):
 class Event(BaseModel):
     """An action-bearing narrative unit extracted from an Atom.
 
-    :param id: Unique identifier.
-    :param verb: Lemmatised main verb of the event clause.
-    :param tense: Grammatical tense string (e.g. "past", "present").
-    :param aspect: Grammatical aspect string (e.g. "simple", "progressive").
-    :param confidence: Extraction confidence in [0.0, 1.0].
-    :param participants: Characters who take part in this event.
-    :param needs_review: True when confidence is below the configured threshold.
+    :ivar id: Unique identifier.
+    :ivar verb: Lemmatised main verb of the event clause.
+    :ivar tense: Grammatical tense string (e.g. "past", "present").
+    :ivar aspect: Grammatical aspect string (e.g. "simple", "progressive").
+    :ivar confidence: Extraction confidence in [0.0, 1.0].
+    :ivar participants: Characters who take part in this event.
+    :ivar needs_review: True when confidence is below the configured threshold.
     """
 
     id: str
@@ -150,13 +150,13 @@ class Event(BaseModel):
 class Atom(BaseModel):
     """The minimal expressive narrative unit — a single clause or sentence.
 
-    :param id: Unique identifier.
-    :param text: Raw text of the atom.
-    :param kind: Functional classification.
-    :param surface_order: Position within its parent Scene (0-based).
-    :param confidence: Segmentation / classification confidence in [0.0, 1.0].
-    :param code_tags: Barthesian code labels attached to this atom.
-    :param needs_review: True when confidence is below the configured threshold.
+    :ivar id: Unique identifier.
+    :ivar text: Raw text of the atom.
+    :ivar kind: Functional classification.
+    :ivar surface_order: Position within its parent Scene (0-based).
+    :ivar confidence: Segmentation / classification confidence in [0.0, 1.0].
+    :ivar code_tags: Barthesian code labels attached to this atom.
+    :ivar needs_review: True when confidence is below the configured threshold.
     """
 
     id: str
@@ -174,10 +174,10 @@ class Atom(BaseModel):
 class Pattern(BaseModel):
     """A reusable narrative template stored in the graph library.
 
-    :param id: Unique identifier (e.g. "pattern.gift_exchange").
-    :param name: Human-readable name.
-    :param family: Family tag (see PatternFamily enum).
-    :param description: Prose description of the pattern's narrative function.
+    :ivar id: Unique identifier (e.g. "pattern.gift_exchange").
+    :ivar name: Human-readable name.
+    :ivar family: Family tag (see PatternFamily enum).
+    :ivar description: Prose description of the pattern's narrative function.
     """
 
     model_config = ConfigDict(frozen=True)
@@ -191,13 +191,13 @@ class Pattern(BaseModel):
 class PatternInstance(BaseModel):
     """Concrete realisation of a Pattern in a specific Scene.
 
-    :param id: Unique identifier.
-    :param slot: Structural slot label (e.g. "scene-core", "opening").
-    :param confidence: Match confidence in [0.0, 1.0].
-    :param template: The Pattern this instance realises.
-    :param realized_atoms: Atom IDs that ground this instance.
-    :param realized_events: Event IDs that ground this instance.
-    :param needs_review: True when confidence is below the configured threshold.
+    :ivar id: Unique identifier.
+    :ivar slot: Structural slot label (e.g. "scene-core", "opening").
+    :ivar confidence: Match confidence in [0.0, 1.0].
+    :ivar template: The Pattern this instance realises.
+    :ivar realized_atoms: Atom IDs that ground this instance.
+    :ivar realized_events: Event IDs that ground this instance.
+    :ivar needs_review: True when confidence is below the configured threshold.
     """
 
     id: str
@@ -212,6 +212,30 @@ class PatternInstance(BaseModel):
 # ── Transform audit node ──────────────────────────────────────────────────────
 
 
+class AtomRevision(BaseModel):
+    """A revised version of an Atom's text, preserving the full revision chain.
+
+    The graph schema mirrors the transform audit pattern:
+    ``(Atom)-[:CURRENT_REVISION]->(AtomRevision)`` points to the latest;
+    ``(Atom)-[:HAS_REVISION]->(AtomRevision)`` retains all versions;
+    ``(AtomRevision)-[:SUPERSEDES]->(AtomRevision)`` links new → old.
+
+    :ivar id: Unique identifier.
+    :ivar atom_id: ID of the parent Atom.
+    :ivar text: Revised prose text.
+    :ivar revised_at: UTC timestamp of the revision.
+    :ivar operator: Identifier of the user or system that issued the revision.
+    :ivar reason: Optional human-readable reason for the change.
+    """
+
+    id: str
+    atom_id: str
+    text: str
+    revised_at: datetime = Field(default_factory=datetime.utcnow)
+    operator: str = "system"
+    reason: str = ""
+
+
 class Transform(BaseModel):
     """Audit record for a single transformation operation.
 
@@ -220,14 +244,14 @@ class Transform(BaseModel):
     it produced (``PRODUCED``).  It is never deleted or overwritten; the
     full sequence of transforms is always traversable.
 
-    :param id: Unique identifier.
-    :param axis: The transformation axis that was applied.
-    :param operator: Identifier of the user or system that issued the transform.
-    :param applied_at: UTC timestamp of the operation.
-    :param parameters: Axis-specific parameters as a free dict (serialised to
+    :ivar id: Unique identifier.
+    :ivar axis: The transformation axis that was applied.
+    :ivar operator: Identifier of the user or system that issued the transform.
+    :ivar applied_at: UTC timestamp of the operation.
+    :ivar parameters: Axis-specific parameters as a free dict (serialised to
         JSON when persisted).
-    :param scene_id: ID of the scene this transform was applied to.
-    :param produced_id: ID of the new state node produced by this transform.
+    :ivar scene_id: ID of the scene this transform was applied to.
+    :ivar produced_id: ID of the new state node produced by this transform.
     """
 
     id: str
@@ -245,16 +269,16 @@ class Transform(BaseModel):
 class Scene(BaseModel):
     """A bounded narrative segment within a Narrative.
 
-    :param id: Unique identifier.
-    :param sequence: Ordinal position within the parent Narrative (1-based).
-    :param summary: Optional human-readable summary of the scene.
-    :param atoms: Ordered list of Atoms in this scene.
-    :param events: Events extracted from this scene.
-    :param pattern_instances: Pattern instances detected in this scene.
-    :param current_perspective: Active Perspective node (if any).
-    :param current_mood: Active MoodState node (if any).
-    :param current_genre: Active GenreProfile node (if any).
-    :param chronotope: Active Chronotope node (if any).
+    :ivar id: Unique identifier.
+    :ivar sequence: Ordinal position within the parent Narrative (1-based).
+    :ivar summary: Optional human-readable summary of the scene.
+    :ivar atoms: Ordered list of Atoms in this scene.
+    :ivar events: Events extracted from this scene.
+    :ivar pattern_instances: Pattern instances detected in this scene.
+    :ivar current_perspective: Active Perspective node (if any).
+    :ivar current_mood: Active MoodState node (if any).
+    :ivar current_genre: Active GenreProfile node (if any).
+    :ivar chronotope: Active Chronotope node (if any).
     """
 
     id: str
@@ -272,12 +296,12 @@ class Scene(BaseModel):
 class Narrative(BaseModel):
     """Top-level work or draft — the root node of a TNGS narrative graph.
 
-    :param id: Unique identifier.
-    :param title: Working title of the narrative.
-    :param status: Life-cycle state.
-    :param source_ref: Optional reference to the originating source document.
-    :param scenes: Ordered list of Scenes.
-    :param created_at: UTC creation timestamp.
+    :ivar id: Unique identifier.
+    :ivar title: Working title of the narrative.
+    :ivar status: Life-cycle state.
+    :ivar source_ref: Optional reference to the originating source document.
+    :ivar scenes: Ordered list of Scenes.
+    :ivar created_at: UTC creation timestamp.
     """
 
     id: str
@@ -299,9 +323,9 @@ class EventRelation(BaseModel):
     from the event nodes themselves because they are inter-event edges
     rather than containment relationships.
 
-    :param source_id: ID of the originating Event.
-    :param target_id: ID of the destination Event.
-    :param relation_type: One of ``CAUSES``, ``ENABLES``, ``PREVENTS``,
+    :ivar source_id: ID of the originating Event.
+    :ivar target_id: ID of the destination Event.
+    :ivar relation_type: One of ``CAUSES``, ``ENABLES``, ``PREVENTS``,
         ``PRECEDES``.
     """
 
@@ -317,10 +341,10 @@ class GraphState(BaseModel):
 
     Passed to renderer implementations so they never issue Cypher directly.
 
-    :param narrative: The root Narrative with all nested scenes and atoms.
-    :param transforms: Ordered transform history (oldest first).
-    :param characters: All Characters referenced in this narrative.
-    :param event_relations: Explicit inter-event relationships (CAUSES,
+    :ivar narrative: The root Narrative with all nested scenes and atoms.
+    :ivar transforms: Ordered transform history (oldest first).
+    :ivar characters: All Characters referenced in this narrative.
+    :ivar event_relations: Explicit inter-event relationships (CAUSES,
         ENABLES, PREVENTS, PRECEDES) fetched from the graph.  Used by the
         GraphML renderer to draw and score causal/temporal edges.
     """
