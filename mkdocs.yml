@@ -1,0 +1,76 @@
+site_name: Transformable Narrative Graph System
+site_description: A graph-native system for representing, transforming, and rendering literary narratives
+site_author: Matt Briggs
+repo_url: https://github.com/mattbriggs/Transformable-Narrative-Graph
+docs_dir: site
+site_dir: docs
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: sphinx
+            show_source: true
+            show_root_heading: true
+            show_if_no_docstring: false
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - tables
+  - toc:
+      permalink: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
+nav:
+  - Home: index.md
+  - Context: context.md
+  - Guide:
+      - Parsing Narratives: guide/parsing.md
+      - Transforming Narratives: guide/transforming.md
+      - Output and Rendering: guide/output.md
+      - Reading the Graph in yEd: guide/yed.md
+  - Design:
+      - Architecture: design/architecture.md
+      - Data Model: design/data-model.md
+      - Transformation Engine: design/transformation-engine.md
+      - GraphML Export: design/graphml-export.md
+  - API Reference: api/reference.md

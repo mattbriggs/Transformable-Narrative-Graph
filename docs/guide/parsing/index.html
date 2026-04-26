@@ -1,0 +1,1460 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A graph-native system for representing, transforming, and rendering literary narratives">
+      
+      
+        <meta name="author" content="Matt Briggs">
+      
+      
+      
+        <link rel="prev" href="../../context/">
+      
+      
+        <link rel="next" href="../transforming/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Parsing Narratives - Transformable Narrative Graph System</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#parsing-narratives" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Transformable Narrative Graph System" class="md-header__button md-logo" aria-label="Transformable Narrative Graph System" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Transformable Narrative Graph System
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Parsing Narratives
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/mattbriggs/Transformable-Narrative-Graph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../context/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Context
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../design/architecture/" class="md-tabs__link">
+          
+  
+  
+  Design
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../api/reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  API Reference
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Transformable Narrative Graph System" class="md-nav__button md-logo" aria-label="Transformable Narrative Graph System" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Transformable Narrative Graph System
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/mattbriggs/Transformable-Narrative-Graph" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../context/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parsing Narratives
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parsing Narratives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-five-stage-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The five-stage pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The five-stage pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-text-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1 — Text preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2 — Segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-entity-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3 — Entity extraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-4-event-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 4 — Event detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-5-confidence-annotation-and-atom-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 5 — Confidence annotation and atom classification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-detection-parallel-to-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern detection (parallel to annotation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-pipeline-to-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From pipeline to graph
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ingest result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replacing-pipeline-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replacing pipeline stages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transforming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transforming Narratives
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Output and Rendering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reading the Graph in yEd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/data-model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/transformation-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transformation Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design/graphml-export/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GraphML Export
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-five-stage-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The five-stage pipeline
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The five-stage pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stage-1-text-preparation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 1 — Text preparation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-2-segmentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 2 — Segmentation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-3-entity-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 3 — Entity extraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-4-event-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 4 — Event detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stage-5-confidence-annotation-and-atom-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stage 5 — Confidence annotation and atom classification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pattern-detection-parallel-to-annotation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pattern detection (parallel to annotation)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-pipeline-to-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From pipeline to graph
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest-result" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ingest result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#replacing-pipeline-stages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replacing pipeline stages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="parsing-narratives">Parsing Narratives<a class="headerlink" href="#parsing-narratives" title="Permanent link">&para;</a></h1>
+<p>When you POST text to <code>/v1/notes/import</code>, TNGS runs a five-stage rule-based
+pipeline entirely in memory before writing a single node to the graph.  The
+pipeline requires no external NLP libraries or model downloads; it ships and
+runs in CI out of the box.</p>
+<hr />
+<h2 id="the-five-stage-pipeline">The five-stage pipeline<a class="headerlink" href="#the-five-stage-pipeline" title="Permanent link">&para;</a></h2>
+<pre class="mermaid"><code>flowchart LR
+    A[Raw text] --&gt; B[Stage 1\nText prep]
+    B --&gt; C[Stage 2\nSegmentation]
+    C --&gt; D[Stage 3\nEntity extraction]
+    C --&gt; E[Stage 4\nEvent detection]
+    D &amp; E --&gt; F[Stage 5\nAnnotation]
+    F --&gt; G[Pattern detection]
+    G --&gt; H[(Neo4j graph)]</code></pre>
+<hr />
+<h3 id="stage-1-text-preparation">Stage 1 — Text preparation<a class="headerlink" href="#stage-1-text-preparation" title="Permanent link">&para;</a></h3>
+<p>The raw input string is cleaned according to the declared <code>format</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Format</th>
+<th>Pre-processing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text</code></td>
+<td>Strip leading/trailing whitespace</td>
+</tr>
+<tr>
+<td><code>markdown</code></td>
+<td>Strip YAML frontmatter (<code>---</code> block), then whitespace</td>
+</tr>
+<tr>
+<td><code>json</code></td>
+<td>Payload fields unpacked by the API layer before reaching the service</td>
+</tr>
+</tbody>
+</table>
+<p>After this stage the input is always a plain text string.</p>
+<hr />
+<h3 id="stage-2-segmentation">Stage 2 — Segmentation<a class="headerlink" href="#stage-2-segmentation" title="Permanent link">&para;</a></h3>
+<p>Two splitting rules are applied in sequence:</p>
+<p><strong>Paragraphs → Scenes</strong></p>
+<p>Double newlines (<code>\n\n</code> or more) mark scene boundaries.  Each paragraph
+becomes one <code>Scene</code> node.  A short story with three paragraphs produces three
+scenes.</p>
+<p><strong>Sentences → Atoms</strong></p>
+<p>Within each paragraph a regex splits on sentence-ending punctuation (<code>.</code>, <code>!</code>,
+<code>?</code>) followed by optional closing punctuation and a space before an upper-case
+letter, or at end-of-string:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>(?&lt;=[.!?])[\&quot;&#39;]?\s+(?=[A-Z])  |  (?&lt;=[.!?])[\&quot;&#39;]?$
+</code></pre></div>
+<p>Each resulting sentence becomes one candidate <code>Atom</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Segmentation example</p>
+<p>Input:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Alice offered the book. She smiled.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Bob accepted it gratefully. He nodded once.
+</code></pre></div>
+Output: 2 scenes, 4 atoms.</p>
+<table>
+<thead>
+<tr>
+<th>Scene</th>
+<th>Sequence</th>
+<th>Atoms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scene 1</td>
+<td>1</td>
+<td>"Alice offered the book." · "She smiled."</td>
+</tr>
+<tr>
+<td>Scene 2</td>
+<td>2</td>
+<td>"Bob accepted it gratefully." · "He nodded once."</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="stage-3-entity-extraction">Stage 3 — Entity extraction<a class="headerlink" href="#stage-3-entity-extraction" title="Permanent link">&para;</a></h3>
+<p>Each scene's sentences are scanned for <strong>consecutive capitalised words</strong> (1–4
+tokens matching <code>[A-Z][a-z]+</code>) that do <em>not</em> appear at the very start of a
+sentence.  A stop-list of pronouns, conjunctions, and common sentence-initial
+words filters obvious false positives.</p>
+<p>Confidence is assigned per entity:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>confidence = min(0.95, 0.75 + 0.05 × (mention_count − 1))
+</code></pre></div>
+<p>A single mention → 0.75 confidence.  Each additional mention raises it by
+0.05, capped at 0.95.</p>
+<div class="admonition example">
+<p class="admonition-title">Entity extraction example</p>
+<p>Sentences: <code>"Alice ran. Alice stopped. Bob arrived."</code></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Mentions</th>
+<th>Confidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alice</td>
+<td>2</td>
+<td>0.80</td>
+</tr>
+<tr>
+<td>Bob</td>
+<td>1</td>
+<td>0.75</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr />
+<h3 id="stage-4-event-detection">Stage 4 — Event detection<a class="headerlink" href="#stage-4-event-detection" title="Permanent link">&para;</a></h3>
+<p>Each sentence is scanned for a <strong>verb phrase</strong> using a regex that covers:</p>
+<ul>
+<li>Modal + main verb (<code>will run</code>, <code>should leave</code>)</li>
+<li>Be + -ing progressive (<code>was walking</code>, <code>is running</code>)</li>
+<li>Have + past participle (<code>had arrived</code>, <code>has seen</code>)</li>
+<li>Simple inflected verb (<code>walked</code>, <code>stops</code>, <code>running</code>)</li>
+</ul>
+<p>The <strong>first</strong> match per sentence becomes a <code>DetectedEvent</code>.  Tense is
+inferred from surface markers:</p>
+<table>
+<thead>
+<tr>
+<th>Marker pattern</th>
+<th>Tense</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>will</code>, <code>shall</code>, <code>going to</code></td>
+<td>future</td>
+</tr>
+<tr>
+<td><code>was</code>, <code>were</code>, <code>had</code>, <code>-ed</code> endings</td>
+<td>past</td>
+</tr>
+<tr>
+<td>Everything else</td>
+<td>present</td>
+</tr>
+</tbody>
+</table>
+<p>All rule-based events receive a base confidence of <strong>0.75</strong>.</p>
+<hr />
+<h3 id="stage-5-confidence-annotation-and-atom-classification">Stage 5 — Confidence annotation and atom classification<a class="headerlink" href="#stage-5-confidence-annotation-and-atom-classification" title="Permanent link">&para;</a></h3>
+<p>The annotator wraps extracted entities and events in domain model objects with
+UUIDs and applies the <code>confidence_threshold</code> (default <code>0.6</code>):</p>
+<ul>
+<li>Items <strong>at or above</strong> the threshold proceed normally.</li>
+<li>Items <strong>below</strong> the threshold are flagged <code>needs_review=True</code> but <strong>are not discarded</strong>.
+  Ambiguity is first-class data; a human or downstream process resolves it.</li>
+</ul>
+<p><strong>Atom confidence penalties:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Condition</th>
+<th>Penalty</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sentence shorter than 10 characters</td>
+<td>−0.15</td>
+</tr>
+<tr>
+<td>No terminal punctuation (<code>.!?</code>)</td>
+<td>−0.05</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Atom kind classification</strong> (heuristic, in priority order):</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dialogic</code></td>
+<td>Sentence starts with <code>"</code> / <code>'</code> / <code>"</code> / <code>"</code>, or contains <code>said</code>/<code>asked</code>/<code>replied</code>/<code>whispered</code>/<code>shouted</code></td>
+</tr>
+<tr>
+<td><code>reflexive</code></td>
+<td>Contains <code>thought</code>/<code>felt</code>/<code>wondered</code>/<code>realised</code>/<code>realized</code>/<code>knew</code></td>
+</tr>
+<tr>
+<td><code>transitional</code></td>
+<td>Starts with <code>then</code>/<code>later</code>/<code>meanwhile</code>/<code>afterwards</code>/<code>next</code>/<code>finally</code></td>
+</tr>
+<tr>
+<td><code>expository</code></td>
+<td>Contains <code>was a</code>/ <code>were a</code>/ <code>is a</code>/ <code>are a</code>/ <code>had been</code></td>
+</tr>
+<tr>
+<td><code>descriptive</code></td>
+<td>Default</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Character–event linking:</strong> A character is added as a <code>PARTICIPATES_IN</code>
+participant if their name (case-insensitive) appears anywhere in the source
+sentence of the event.</p>
+<hr />
+<h3 id="pattern-detection-parallel-to-annotation">Pattern detection (parallel to annotation)<a class="headerlink" href="#pattern-detection-parallel-to-annotation" title="Permanent link">&para;</a></h3>
+<p>After atoms and events are assembled for a scene, <code>PatternService</code> runs
+keyword matching against all registered <code>Pattern</code> templates.  Matches above
+the confidence threshold become <code>PatternInstance</code> nodes linked to the scene.</p>
+<hr />
+<h2 id="from-pipeline-to-graph">From pipeline to graph<a class="headerlink" href="#from-pipeline-to-graph" title="Permanent link">&para;</a></h2>
+<p>All in-memory results are written to Neo4j in a single pass using
+idempotent <code>MERGE</code> statements.  Re-ingesting the same text leaves the graph
+unchanged (no duplicate nodes).</p>
+<pre class="mermaid"><code>sequenceDiagram
+    actor User
+    participant API
+    participant IS as IngestService
+    participant PS as PatternService
+    participant GR as GraphRepository
+
+    User-&gt;&gt;API: POST /v1/notes/import
+    API-&gt;&gt;IS: ingest(payload)
+    IS-&gt;&gt;IS: prepare_text()
+    IS-&gt;&gt;IS: segment_text() → scenes × sentences
+    loop per scene
+        IS-&gt;&gt;IS: extract_entities()
+        IS-&gt;&gt;IS: detect_events()
+        IS-&gt;&gt;IS: annotate_atoms() / annotate_events()
+        IS-&gt;&gt;PS: detect_patterns(atoms, events)
+        PS--&gt;&gt;IS: pattern_instances[]
+        IS-&gt;&gt;GR: save_scene(scene)
+    end
+    GR--&gt;&gt;IS: done
+    IS--&gt;&gt;API: IngestResult
+    API--&gt;&gt;User: 201 + JSON summary</code></pre>
+<hr />
+<h2 id="ingest-result">Ingest result<a class="headerlink" href="#ingest-result" title="Permanent link">&para;</a></h2>
+<p>A successful ingest returns:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;narrative_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;550e8400-e29b-41d4-a716-446655440000&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;scene_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;atom_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;event_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;character_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">&quot;pattern_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">&quot;flagged_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</code></pre></div>
+<p><code>flagged_count</code> is the total number of atoms and events with
+<code>needs_review=True</code>.  Review flags are queryable directly in Neo4j:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">:</span><span class="n">Narrative</span><span class="w"> </span><span class="p">{</span><span class="n">id</span><span class="p">:</span><span class="w"> </span><span class="err">$</span><span class="n">id</span><span class="p">})</span><span class="o">-[</span><span class="p">:</span><span class="n">HAS_SCENE</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-[</span><span class="p">:</span><span class="n">CONTAINS</span><span class="o">]-&gt;</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="n">Atom</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">WHERE</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">needs_review</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">true</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">RETURN</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">sequence</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">scene</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">confidence</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">confidence</span><span class="w"> </span><span class="k">ASC</span>
+</code></pre></div>
+<hr />
+<h2 id="replacing-pipeline-stages">Replacing pipeline stages<a class="headerlink" href="#replacing-pipeline-stages" title="Permanent link">&para;</a></h2>
+<p>Each stage is a Strategy.  To swap in a heavier NLP backend (spaCy, stanza,
+or an LLM classifier), write a function that accepts the same inputs and
+returns the same output type (<code>ExtractedEntity</code>, <code>DetectedEvent</code>, <code>Atom</code>), then
+pass it to <code>IngestService</code> during construction.  No other code changes.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.suggest", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

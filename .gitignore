@@ -164,8 +164,9 @@ venv.bak/
 # Rope project settings
 .ropeproject
 
-# mkdocs documentation
-/site
+# mkdocs documentation — source is in /site, built output is in /docs (GitHub Pages)
+# Uncomment the next line if you do NOT want to commit the built HTML:
+# /docs
 
 # mypy
 .mypy_cache/
@@ -216,3 +217,5 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+.DS_Store
