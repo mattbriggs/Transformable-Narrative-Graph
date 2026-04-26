@@ -110,6 +110,85 @@ class TestApplyTransform:
         assert response.status_code == 200
 
 
+class TestApplyBulkTransform:
+    """Tests for ``POST /v1/transforms/apply-bulk``."""
+
+    def test_bulk_apply_returns_200(self, api_client, mock_repo):
+        def fake_apply(t):
+            t.produced_id = "mood-bulk-001"
+            return t
+
+        mock_repo.apply_transform.side_effect = fake_apply
+        response = api_client.post(
+            "/v1/transforms/apply-bulk",
+            json={
+                "narrative_id": "narr-001",
+                "axis": "mood",
+                "parameters": {"label": "dread", "valence": -0.8, "arousal": 0.7},
+            },
+        )
+        assert response.status_code == 200
+
+    def test_bulk_apply_applied_count_matches_scenes(self, api_client, mock_repo):
+        mock_repo.get_scene_ids.return_value = ["s1", "s2", "s3"]
+
+        def fake_apply(t):
+            t.produced_id = "m-001"
+            return t
+
+        mock_repo.apply_transform.side_effect = fake_apply
+        response = api_client.post(
+            "/v1/transforms/apply-bulk",
+            json={
+                "narrative_id": "narr-001",
+                "axis": "mood",
+                "parameters": {"label": "hope", "valence": 0.5, "arousal": 0.4},
+            },
+        )
+        data = response.json()
+        assert data["applied_count"] == 3
+        assert len(data["results"]) == 3
+
+    def test_bulk_apply_no_scenes_returns_400(self, api_client, mock_repo):
+        mock_repo.get_scene_ids.return_value = []
+        response = api_client.post(
+            "/v1/transforms/apply-bulk",
+            json={
+                "narrative_id": "empty-narr",
+                "axis": "mood",
+                "parameters": {"label": "calm"},
+            },
+        )
+        assert response.status_code == 400
+
+    def test_bulk_apply_invalid_params_returns_400(self, api_client, mock_repo):
+        response = api_client.post(
+            "/v1/transforms/apply-bulk",
+            json={
+                "narrative_id": "narr-001",
+                "axis": "mood",
+                "parameters": {"valence": 99.0},
+            },
+        )
+        assert response.status_code == 400
+
+    def test_bulk_apply_response_contains_narrative_id(self, api_client, mock_repo):
+        def fake_apply(t):
+            t.produced_id = "p1"
+            return t
+
+        mock_repo.apply_transform.side_effect = fake_apply
+        response = api_client.post(
+            "/v1/transforms/apply-bulk",
+            json={
+                "narrative_id": "narr-001",
+                "axis": "genre",
+                "parameters": {"name": "gothic"},
+            },
+        )
+        assert response.json()["narrative_id"] == "narr-001"
+
+
 class TestGetTransform:
     """Tests for ``GET /v1/transforms/{id}``."""
 

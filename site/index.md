@@ -7,9 +7,9 @@
 ## Quick start
 
 ```bash
-# 1. Create the Neo4j credentials secret
-mkdir -p secrets
-echo "neo4j/CHANGE_ME_BEFORE_DEPLOY" > secrets/neo4j_auth.txt
+# 1. Set your Neo4j password
+cp .env.example .env
+# Edit .env and change NEO4J_PASSWORD to something secure
 
 # 2. Start the full stack
 docker compose up -d --build
@@ -69,6 +69,7 @@ flowchart LR
 | Concept | Description |
 |---------|-------------|
 | **Atom** | The minimal expressive unit — a single clause or sentence |
+| **AtomRevision** | A non-destructive text revision of an atom; original text always preserved |
 | **Event** | An action-bearing unit with verb, tense, aspect, and participants |
 | **Pattern** | A reusable narrative template (ritual, conflict, revelation, etc.) |
 | **Transform** | A non-destructive, auditable graph operation on one interpretation axis |
@@ -91,15 +92,18 @@ flowchart LR
 
 All transforms are **non-destructive**: the old state node is detached but never deleted. The full transformation lineage is always traversable in the graph.
 
+To apply a transformation across every scene in a narrative in one call, use `POST /v1/transforms/apply-bulk`.
+
 ---
 
 ## Guide
 
 | | |
 |---|---|
-| [Parsing Narratives](guide/parsing.md) | How the ingest pipeline segments text into atoms, extracts entities and events, assigns confidence, and writes the graph |
-| [Transforming Narratives](guide/transforming.md) | Use-case recipes for POV shifts, genre changes, mood adjustments, code overlays, and transform sequences |
-| [Output and Rendering](guide/output.md) | All six render formats — prose, diff, JSON, Cypher, Markdown, and GraphML — with curl examples |
+| [Walkthrough: The Yellow Wallpaper](guide/walkthrough.md) | End-to-end example: ingest a public-domain novel, explore the graph, apply transforms, revise prose, and compare GraphML tension maps |
+| [Parsing Narratives](guide/parsing.md) | How the ingest pipeline segments text — including Markdown chapter headings — into scenes and atoms |
+| [Transforming Narratives](guide/transforming.md) | Use-case recipes for POV shifts, bulk mood transforms, atom text revisions, and code overlays |
+| [Output and Rendering](guide/output.md) | All six render formats — prose (chapter-aware), diff, JSON, Cypher, Markdown, and GraphML — with curl examples |
 | [Reading the Graph in yEd](guide/yed.md) | Opening the GraphML export in yEd, applying layouts, reading node/edge colors, and filtering by tension score |
 
 ---

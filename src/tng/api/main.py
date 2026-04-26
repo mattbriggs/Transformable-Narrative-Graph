@@ -18,7 +18,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from tng.api.dependencies import lifespan
-from tng.api.routers import health, ingest, narratives, patterns, render, transforms
+from tng.api.routers import atoms, health, ingest, narratives, patterns, render, transforms
 
 logger = logging.getLogger(__name__)
 
@@ -49,6 +49,7 @@ app.include_router(narratives.router)
 app.include_router(patterns.router)
 app.include_router(transforms.router)
 app.include_router(render.router)
+app.include_router(atoms.router)
 
 
 def run() -> None:

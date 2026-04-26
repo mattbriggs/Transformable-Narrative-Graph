@@ -36,7 +36,12 @@ from tng.ingest.annotator import (
 )
 from tng.ingest.entity_extractor import extract_entities
 from tng.ingest.event_detector import detect_events
-from tng.ingest.segmenter import segment_text, strip_markdown_frontmatter
+from tng.ingest.segmenter import (
+    SceneSection,
+    segment_markdown,
+    segment_text,
+    strip_markdown_frontmatter,
+)
 from tng.repository.graph_repository import GraphRepository
 from tng.services.pattern_service import PatternService
 
@@ -111,8 +116,7 @@ class IngestService:
         """
         logger.info("Starting ingest for narrative %r", payload.narrative_id)
 
-        text = self._prepare_text(payload)
-        segmented = segment_text(text)
+        sections = self._segment(payload)
 
         narrative = Narrative(
             id=payload.narrative_id,
@@ -124,13 +128,11 @@ class IngestService:
 
         total_atoms = total_events = total_chars = total_patterns = flagged = 0
 
-        for seq, (paragraph, sentences) in enumerate(
-            zip(segmented.paragraphs, segmented.sentences_by_paragraph), start=1
-        ):
-            atoms = annotate_atoms(sentences, self._threshold)
-            entities = extract_entities(sentences, self._threshold)
+        for seq, section in enumerate(sections, start=1):
+            atoms = annotate_atoms(section.sentences, self._threshold)
+            entities = extract_entities(section.sentences, self._threshold)
             characters = annotate_characters(entities)
-            detected = detect_events(sentences, self._threshold)
+            detected = detect_events(section.sentences, self._threshold)
             events = annotate_events(detected, characters)
 
             pattern_instances = self._pattern_service.detect_patterns(
@@ -140,15 +142,13 @@ class IngestService:
             scene = Scene(
                 id=make_id(),
                 sequence=seq,
-                summary=paragraph[:120],
+                summary=section.summary,
                 atoms=atoms,
                 events=events,
                 pattern_instances=pattern_instances,
             )
 
             self._repo.save_scene(scene, payload.narrative_id)
-            for char in characters:
-                self._repo.save_narrative(narrative)  # no-op for char; use event link
 
             total_atoms += len(atoms)
             total_events += len(events)
@@ -169,7 +169,7 @@ class IngestService:
         )
         return IngestResult(
             narrative_id=payload.narrative_id,
-            scene_count=len(segmented.paragraphs),
+            scene_count=len(sections),
             atom_count=total_atoms,
             event_count=total_events,
             character_count=total_chars,
@@ -177,13 +177,22 @@ class IngestService:
             flagged_count=flagged,
         )
 
-    def _prepare_text(self, payload: IngestPayload) -> str:
-        """Pre-process text according to the declared format.
+    def _segment(self, payload: IngestPayload) -> list[SceneSection]:
+        """Segment the payload text into scene sections.
+
+        Dispatches to ``segment_markdown`` when ``format == "markdown"`` so
+        heading lines become scene boundaries with a populated ``summary``.
+        All other formats use the paragraph-boundary segmenter and produce
+        sections with ``summary = ""``.
 
         :param payload: The ingest payload.
-        :returns: Cleaned text ready for segmentation.
+        :returns: Ordered list of ``SceneSection`` instances.
         """
-        text = payload.text
+        text = payload.text.strip()
         if payload.format == "markdown":
-            text = strip_markdown_frontmatter(text)
-        return text.strip()
+            return segment_markdown(text)
+        segmented = segment_text(strip_markdown_frontmatter(text))
+        return [
+            SceneSection(summary="", sentences=sentences)
+            for sentences in segmented.sentences_by_paragraph
+        ]

@@ -151,6 +151,9 @@ def mock_repo(sample_narrative, sample_pattern) -> MagicMock:
         "produced_id": "pov-t-001",
     }
     repo.get_transform_history.return_value = []
+    repo.get_scene_ids.return_value = ["scene-001"]
+    repo.revise_atom.return_value = True
+    repo.get_atom_revisions.return_value = []
     repo.get_graph_state.return_value = GraphState(
         narrative=sample_narrative, transforms=[]
     )

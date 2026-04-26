@@ -53,9 +53,9 @@ logger = logging.getLogger(__name__)
 class PovParams(BaseModel):
     """Parameters for a POV transformation.
 
-    :param focalizer: ID of the Character who becomes the focalizer.
-    :param distance: Genettean focalization distance.
-    :param reliability: Narrator/focalizer credibility.
+    :ivar focalizer: ID of the Character who becomes the focalizer.
+    :ivar distance: Genettean focalization distance.
+    :ivar reliability: Narrator/focalizer credibility.
     """
 
     focalizer: str
@@ -66,9 +66,9 @@ class PovParams(BaseModel):
 class MoodParams(BaseModel):
     """Parameters for a mood transformation.
 
-    :param label: Free-text mood label.
-    :param valence: Sentiment polarity in [-1.0, 1.0].
-    :param arousal: Activation in [0.0, 1.0].
+    :ivar label: Free-text mood label.
+    :ivar valence: Sentiment polarity in [-1.0, 1.0].
+    :ivar arousal: Activation in [0.0, 1.0].
     """
 
     label: str
@@ -79,8 +79,8 @@ class MoodParams(BaseModel):
 class GenreParams(BaseModel):
     """Parameters for a genre transformation.
 
-    :param name: Genre name.
-    :param conventions: List of genre constraint strings.
+    :ivar name: Genre name.
+    :ivar conventions: List of genre constraint strings.
     """
 
     name: str
@@ -90,8 +90,8 @@ class GenreParams(BaseModel):
 class ChronotopeParams(BaseModel):
     """Parameters for a chronotope transformation.
 
-    :param time_mode: Time mode (cyclical/linear/suspended/compressed).
-    :param space_mode: Space mode (bounded/open/liminal/utopian).
+    :ivar time_mode: Time mode (cyclical/linear/suspended/compressed).
+    :ivar space_mode: Space mode (bounded/open/liminal/utopian).
     """
 
     time_mode: str
@@ -117,7 +117,7 @@ class ChronotopeParams(BaseModel):
 class ReliabilityParams(BaseModel):
     """Parameters for a reliability transformation.
 
-    :param reliability: New reliability level for the existing Perspective.
+    :ivar reliability: New reliability level for the existing Perspective.
     """
 
     reliability: ReliabilityLevel
@@ -126,9 +126,9 @@ class ReliabilityParams(BaseModel):
 class CodeOverlayParams(BaseModel):
     """Parameters for a code overlay transformation.
 
-    :param atom_id: ID of the target Atom.
-    :param code: Barthesian code category.
-    :param label: Human-readable annotation label.
+    :ivar atom_id: ID of the target Atom.
+    :ivar code: Barthesian code category.
+    :ivar label: Human-readable annotation label.
     """
 
     atom_id: str
@@ -227,6 +227,43 @@ class TransformService:
             axis=request.axis.value,
             produced_id=result.produced_id,
         )
+
+    def apply_bulk(
+        self,
+        narrative_id: str,
+        axis: TransformAxis,
+        parameters: dict[str, Any],
+        operator: str = "system",
+    ) -> list[TransformResponse]:
+        """Apply a transformation axis to every scene in a narrative.
+
+        Validates parameters against the axis schema before issuing any write.
+        Scenes are processed in sequence order.
+
+        :param narrative_id: Target narrative ID.
+        :param axis: The transformation axis.
+        :param parameters: Axis-specific parameter dict (validated once).
+        :param operator: Identifier of the requesting user/system.
+        :returns: List of ``TransformResponse`` — one per scene.
+        :raises ValueError: When parameters fail axis validation or the
+            narrative has no scenes.
+        """
+        self._validate_params(axis, parameters)
+        scene_ids = self._repo.get_scene_ids(narrative_id)
+        if not scene_ids:
+            raise ValueError(f"No scenes found for narrative {narrative_id!r}.")
+        results = []
+        for scene_id in scene_ids:
+            result = self.apply(
+                TransformRequest(
+                    scene_id=scene_id,
+                    axis=axis,
+                    parameters=parameters,
+                    operator=operator,
+                )
+            )
+            results.append(result)
+        return results
 
     def get_history(self, scene_id: str) -> list[dict]:
         """Return the transformation history for a scene.

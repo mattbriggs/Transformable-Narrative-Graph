@@ -267,7 +267,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="guide/parsing/" class="md-tabs__link">
+        <a href="guide/walkthrough/" class="md-tabs__link">
           
   
   
@@ -592,6 +592,34 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="guide/walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Walkthrough: The Yellow Wallpaper
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -1037,9 +1065,9 @@
 <p><strong>TNGS</strong> is a graph-native software system for representing, transforming, and rendering literary narratives. It stores narratives as property graphs in Neo4j and applies auditable literary transformations along six axes — point of view, mood, genre, time-space framing, narrator reliability, and narrative code overlay.</p>
 <hr />
 <h2 id="quick-start">Quick start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Create the Neo4j credentials secret</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>secrets
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;neo4j/CHANGE_ME_BEFORE_DEPLOY&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>secrets/neo4j_auth.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># 1. Set your Neo4j password</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="c1"># Edit .env and change NEO4J_PASSWORD to something secure</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># 2. Start the full stack</span>
 <a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d<span class="w"> </span>--build
@@ -1099,6 +1127,10 @@
 <tr>
 <td><strong>Atom</strong></td>
 <td>The minimal expressive unit — a single clause or sentence</td>
+</tr>
+<tr>
+<td><strong>AtomRevision</strong></td>
+<td>A non-destructive text revision of an atom; original text always preserved</td>
 </tr>
 <tr>
 <td><strong>Event</strong></td>
@@ -1170,6 +1202,7 @@
 </tbody>
 </table>
 <p>All transforms are <strong>non-destructive</strong>: the old state node is detached but never deleted. The full transformation lineage is always traversable in the graph.</p>
+<p>To apply a transformation across every scene in a narrative in one call, use <code>POST /v1/transforms/apply-bulk</code>.</p>
 <hr />
 <h2 id="guide">Guide<a class="headerlink" href="#guide" title="Permanent link">&para;</a></h2>
 <table>
@@ -1181,16 +1214,20 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="guide/walkthrough/">Walkthrough: The Yellow Wallpaper</a></td>
+<td>End-to-end example: ingest a public-domain novel, explore the graph, apply transforms, revise prose, and compare GraphML tension maps</td>
+</tr>
+<tr>
 <td><a href="guide/parsing/">Parsing Narratives</a></td>
-<td>How the ingest pipeline segments text into atoms, extracts entities and events, assigns confidence, and writes the graph</td>
+<td>How the ingest pipeline segments text — including Markdown chapter headings — into scenes and atoms</td>
 </tr>
 <tr>
 <td><a href="guide/transforming/">Transforming Narratives</a></td>
-<td>Use-case recipes for POV shifts, genre changes, mood adjustments, code overlays, and transform sequences</td>
+<td>Use-case recipes for POV shifts, bulk mood transforms, atom text revisions, and code overlays</td>
 </tr>
 <tr>
 <td><a href="guide/output/">Output and Rendering</a></td>
-<td>All six render formats — prose, diff, JSON, Cypher, Markdown, and GraphML — with curl examples</td>
+<td>All six render formats — prose (chapter-aware), diff, JSON, Cypher, Markdown, and GraphML — with curl examples</td>
 </tr>
 <tr>
 <td><a href="guide/yed/">Reading the Graph in yEd</a></td>
